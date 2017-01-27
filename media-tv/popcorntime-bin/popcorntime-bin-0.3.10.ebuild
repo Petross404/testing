@@ -8,8 +8,7 @@ inherit eutils fdo-mime multilib
 
 DESCRIPTION="Watch Movies and TV Shows instantly"
 HOMEPAGE="https://popcorntime.sh/"
-SRC_URI="x86?   ( https://pebkac.gr/gentoo/${PN}-0.3.9-x86.tar.gz )
-amd64? ( https://pebkac.gr/gentoo/${PN}-0.3.9-x86_64.tar.gz )"
+SRC_URI="amd64? ( https://get.popcorntime.sh/build/Popcorn-Time-0.3.10-Linux-64.tar.xz )"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -31,9 +30,9 @@ src_install() {
 	doexe Popcorn-Time
 
 	insinto /opt/${PN}
-	doins -r src node_modules icudtl.dat locales LICENSE.txt libffmpegsumo.so nw.pak package.json
-
-	dosym /$(get_libdir)/libudev.so.1 /opt/${PN}/libudev.so.0
+	doins -r src node_modules icudtl.dat locales LICENSE.txt lib nw_100_percent.pak nw_200_percent.pak package.json resources.pak snapshot_blob.bin pnacl CHANGELOG.md chromedriver credits.html minidump_stackwalk nacl_helper nacl_helper_bootstrap nacl_irt_x86_64.nexe natives_blob.bin nwjc payload README.md 
+    
+    dosym /$(get_libdir)/libudev.so.1 /opt/${PN}/libudev.so.0
 	dosym /opt/${PN}/Popcorn-Time /usr/bin/${PN}
 	make_wrapper ${PN} ./Popcorn-Time /opt/${PN} /opt/bin
 
