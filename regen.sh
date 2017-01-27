@@ -1,8 +1,8 @@
 #! /bin/bash
 
-echo "local" > profiles/repo_name
+echo "testing" > profiles/repo_name
 repoman manifest
-emerge --regen 
+emerge --regen
 emerge --metadata
-repoman --digest=y -d full 
+repoman --digest=y -d full
 egencache --jobs=2 --update --repo local
