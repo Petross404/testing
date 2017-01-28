@@ -6,9 +6,9 @@
 		<name>PetrosS</name>
 	</maintainer>
 	<use>
-		<flag name="bindist">Build LinuxCNC even if a license problem would render the resulting binaries non-distributable.</flag>
-		<flag name="modbus">Specify whether or not to build the drivers that use libmodbus.</flag>
-		<flag name="usb">Specify whether or not to build the drivers that use libusb-1.</flag>
-		<flag name="uspace">Use  POSIX userspace instead of RTAI</flag>
+		<flag name="license">Build LinuxCNC even if a license problem would render the resulting binaries non-distributable</flag>
+		<flag name="modbus">Specify whether or not to build the drivers that use libmodbus</flag>
+		<flag name="usb">Specify whether or not to build the drivers that use dev-libs/libusb:1</flag>
+		<flag name="uspace">Use  POSIX userspace instead of RTAI (cnc simulator only!)</flag>
 	</use>
 </pkgmetadata>
