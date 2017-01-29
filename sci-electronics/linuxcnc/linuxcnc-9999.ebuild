@@ -90,6 +90,7 @@ src_prepare() {
 	#linuxcnc tried to run ldconfig during install throwing sandbox violation
 	sed -i '/ldconfig/d' "${S}"/Makefile || die
 	eautoreconf
+	#./autogen.sh
 	eapply_user
 }
 
