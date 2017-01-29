@@ -88,18 +88,18 @@ S="${S}"/src
 
 src_prepare() {
 	#linuxcnc tried to run ldconfig during install throwing sandbox violation
-	sed -i '/ldconfig/d' "${S}"/Makefile || die
+	sed -i '/ldconfig/d' "${S}"/Makefile || die "sed fix failed. Uh-oh..."
 	eautoreconf
 	eapply_user
 }
 
 src_configure() {
 	econf \
-		'--with-boost-python=boost_python-2.7' '' \
-		$(usex license '--enable-non-distributable=yes' '') \
+		'--with-boost-python=boost_python-2.7' \
+		'--enable-non-distributable='$(usex license yes no) \
 		$(use_with X x) \
 		$(use_enable gtk) \
 		$(use_with modbus libmodbus) \
 		$(use_with usb libusb-1.0) \
-		$(usex uspace '--with-realtime=uspace' '') 
+		'--with-realtime='$(usex uspace uspace RTAI)
 }
