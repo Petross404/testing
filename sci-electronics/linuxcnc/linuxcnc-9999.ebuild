@@ -7,7 +7,7 @@ EAPI=6
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="tk(+)"
 
-inherit eutils python-single-r1
+inherit eutils python-single-r1 autotools
 
 DESCRIPTION="LinuxCNC controls CNC machines."
 HOMEPAGE="http://linuxcnc.org/"
@@ -89,7 +89,7 @@ S="${S}"/src
 src_prepare() {
 	#linuxcnc tried to run ldconfig during install throwing sandbox violation
 	sed -i '/ldconfig/d' "${S}"/Makefile || die
-	./autogen.sh
+	eautoreconf
 	eapply_user
 }
 
