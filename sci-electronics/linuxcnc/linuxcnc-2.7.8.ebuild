@@ -15,7 +15,7 @@ EGIT_REPO_URI="https://github.com/LinuxCNC/linuxcnc"
 
 LICENSE="GPL-2"
 SLOT="0"
-IUSE="+uspace +X +gtk gnome gstreamer +license modbus usb"
+IUSE="+uspace +X +gtk gnome gstreamer +license -modbus usb"
 
 if [[ "${PV}" == "9999" ]] ; then
 	inherit git-r3
@@ -87,6 +87,7 @@ DEPEND="${RDEPEND}"
 S="${S}"/src
 
 src_prepare() {
+	find . -iname fixpaths.py -o -iname checkglade -o -iname update_ini|xargs perl -p -i -e "s/python/python2/"
 	#linuxcnc tried to run ldconfig during install throwing sandbox violation
 	sed -i '/ldconfig/d' "${S}"/Makefile || die "sed fix failed. Uh-oh..."
 	eautoreconf
@@ -95,6 +96,8 @@ src_prepare() {
 
 src_configure() {
 	econf \
+		'--prefix=/usr' \
+		'--with-python=/usr/bin/python2.7' \
 		'--with-boost-python=boost_python-2.7' \
 		'--enable-non-distributable='$(usex license yes no) \
 		$(use_with X x) \
@@ -102,4 +105,11 @@ src_configure() {
 		$(use_with modbus libmodbus) \
 		$(use_with usb libusb-1.0) \
 		'--with-realtime='$(usex uspace uspace RTAI)
+}
+
+src_install(){
+	insinto /usr/share/${PN} 
+	dodir share/applications/ || die
+	#cp -PR ../share/* /usr/share/${PN} || die
+	emake DESTDIR="${D}" install
 }
