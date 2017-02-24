@@ -20,18 +20,18 @@ fi
 LICENSE="GPL-2+"
 KEYWORDS="**"
 SLOT="5"
-IUSE=""
+IUSE="X"
 
-DEPEND=""
+DEPEND=">=dev-qt/qtcore-5.6.0
+		>=kde-frameworks/plasma-5.26
+		>=kde-frameworks/kwayland-5.26
+		>=kde-frameworks/kactivities-5.26
+		>=kde-frameworks/kxmlgui-5.26
+		>=kde-frameworks/ki18n-5.26
+		>=kde-frameworks/kdeclarative-5.26
+		>=kde-frameworks/kdbusaddons-5.26"
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md )
 
 BUILD_DIR="${WORKDIR}/${P}/build"
-
-src_prepare(){
-	sed -i '/sudo/d' install-global.sh
-	chmod +x "${WORKDIR}"/"${P}"/install-global.sh
-	"${WORKDIR}"/"${P}"/install-global.sh
-	eapply_user
-}
