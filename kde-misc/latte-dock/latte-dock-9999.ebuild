@@ -37,4 +37,7 @@ RDEPEND="${DEPEND}"
 DOCS=( README.md )
 
 BUILD_DIR="${WORKDIR}/${P}/build"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 70b257cc91582c35363d3779f31b4f2cd7de686b
