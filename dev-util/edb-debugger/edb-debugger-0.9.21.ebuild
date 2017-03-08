@@ -34,6 +34,8 @@ DEPEND="
 	${RDEPEND}"
 
 src_prepare(){
+	sed -i  '/edb48-logo/d' CMakeLists.txt || die
+	
 	if ! use graphviz; then
 		sed -i '/pkg_check_modules(GRAPHVIZ/d' CMakeLists.txt || die
 	fi
