@@ -13,16 +13,14 @@ https://github.com/psifidotos/Latte-Dock"
 if [[ ${PV} = 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/psifidotos/Latte-Dock.git"
+	KEYWORDS="**"
 else
 	SRC_URI="https://codeload.github.com/psifidotos/${PN}/tar.gz/v${PV} -> ${P}.tar.gz "
+	KEYWORDS="~amd64 ~x86"
 fi
 
-#EGIT_BRANCH="multi2"
-
 LICENSE="GPL-2+"
-KEYWORDS="**"
 SLOT="5"
-IUSE="X"
 
 DEPEND=">=dev-qt/qtcore-5.6.0
 		>=kde-frameworks/plasma-5.26
@@ -34,10 +32,4 @@ DEPEND=">=dev-qt/qtcore-5.6.0
 		>=kde-frameworks/kdbusaddons-5.26"
 RDEPEND="${DEPEND}"
 
-DOCS=( README.md )
-
 BUILD_DIR="${WORKDIR}/${P}/build"
-<<<<<<< HEAD
-
-=======
->>>>>>> 70b257cc91582c35363d3779f31b4f2cd7de686b
