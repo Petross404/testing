@@ -6,7 +6,4 @@
 		<name>Petross404 (Petros S)</name>
 		<description>maintainer</description>
 	</maintainer>
-	<use>
-		<flag name="X"></flag>
-	</use>
 </pkgmetadata>
