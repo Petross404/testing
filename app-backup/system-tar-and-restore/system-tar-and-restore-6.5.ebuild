@@ -33,6 +33,6 @@ src_install(){
 }
 
 pkg_postinst(){
-	elog "If you need the Parallel LZMA compressor, make sure you installed app-arch/pxz"
-	elog "If you need the Parallel bzip2 (de)compressor, make sure you installed app-arch/pbzip2"
+	elog "If you need the Parallel LZMA compressor, make sure you have installed app-arch/pxz"
+	elog "If you need the Parallel bzip2 (de)compressor, make sure you have installed app-arch/pbzip2"
 }
