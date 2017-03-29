@@ -10,8 +10,6 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<use>
-	<flag name="gui">Install gui wrapper (Optional)</flag>
-	<flag name="parallel-xz">Add support for paraller LZMA compressor</flag>
-	<flag name="parallel-bzip2">Add support for parallel bzip2 (de)compressor</flag>
+	<flag name="gui">Install gui wrapper based on gtkdialog (Optional)</flag>
 	</use>
 </pkgmetadata>

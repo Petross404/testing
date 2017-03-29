@@ -15,19 +15,24 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="
 	gui? ( x11-misc/gtkdialog )
-	parallel-xz? ( app-arch/pxz )
-	parallel-bzip2? ( app-arch/pbzip2 )
 	app-shells/bash:0
 	"
-
 DEPEND="${RDEPEND}"
 
 src_install(){
 	dobin star.sh
-	dobin star-gui.sh
+	
+	if use gui; then
+		dobin star-gui.sh
+	fi
 
 	newconfd backup.conf "${PN}"-Backup.conf
 
 	insinto /usr/share/"${PN}"/
 	newins backup.conf backup.example.conf
+}
+
+pkg_postinst(){
+	elog "If you need the Parallel LZMA compressor, make sure you installed app-arch/pxz"
+	elog "If you need the Parallel bzip2 (de)compressor, make sure you installed app-arch/pbzip2"
 }

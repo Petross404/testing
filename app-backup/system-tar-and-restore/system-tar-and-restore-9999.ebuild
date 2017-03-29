@@ -16,8 +16,6 @@ SLOT="0"
 
 RDEPEND="
 	gui? ( x11-misc/gtkdialog )
-	parallel-xz? ( app-arch/pxz )
-	parallel-bzip2? ( app-arch/pbzip2 )
 	app-shells/bash:0
 	"
 
@@ -30,17 +28,18 @@ src_prepare(){
 
 src_install(){
 	dobin star.sh
-	dobin star-gui.sh
+	
+	if use gui; then
+		dobin star-gui.sh
+	fi
 
 	newconfd backup.conf "${PN}"-Backup.conf
 
 	insinto /usr/share/"${PN}"/
 	newins backup.conf backup.example.conf
+}
 
-	cd pms
-	insinto /usr/share/polkit-1/actions/
-	doins org.freedesktop.star-gui.policy
-
-	insinto /usr/share/applications/
-	doins system-tar-and-restore.desktop
+pkg_postinst(){
+	elog "If you need the Parallel LZMA compressor, make sure you installed app-arch/pxz"
+	elog "If you need the Parallel bzip2 (de)compressor, make sure you installed app-arch/pbzip2"
 }
