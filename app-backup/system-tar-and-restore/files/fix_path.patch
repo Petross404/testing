@@ -1,0 +1,19 @@
+commit 8b81aea455c3d47ab02004f60f578b7dfa82b0b0
+Author: Petross404 <petross404@gmail.com>
+Date:   Wed Mar 29 15:27:56 2017 +0300
+
+    Fix path
+
+diff --git a/star.sh b/star.sh
+index 303d527..543c208 100755
+--- a/star.sh
++++ b/star.sh
+@@ -355,7 +355,7 @@ clean_tmp_files
+ # Set and source the configuration file for Backup mode. If -w is given don't source, the gui wrapper will source it
+ if [ "$BRmode" = "0" ] && [ -z "$BRwrap" ]; then
+   if [ -z "$BRconf" ]; then
+-    BRconf="/etc/backup.conf"
++    BRconf="/etc/conf.d/system-tar-and-restore-Backup.conf"
+   elif [ -n "$BRconf" ] && [ ! -f "$BRconf" ]; then
+     echo -e "[${RED}ERROR${NORM}] File does not exist: $BRconf" >&2
+     exit
