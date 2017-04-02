@@ -24,12 +24,12 @@ SLOT="0"
 
 BUILD_DIR="${S}/build"
 
-RDEPEND="$(add_qt_dep qtcore 5.6.0)
-	$(add_qt_dep qtdbus 5.6.0)
-	$(add_qt_dep qtdeclarative 5.6.0)
-	$(add_qt_dep qtgui 5.6.0)
-	$(add_qt_dep qtwidgets 5.6.0)
-	$(add_qt_dep qtx11extras 5.6.0)
+RDEPEND="$(add_qt_dep qtcore)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfigwidgets)
