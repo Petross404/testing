@@ -30,7 +30,6 @@ RDEPEND=">=dev-qt/qtcore-5.6.0
 	>=dev-qt/qtgui-5.6.0 
 	>=dev-qt/qtwidgets-5.6.0 
 	>=dev-qt/qtx11extras-5.6.0 
-	kde-frameworks/extra-cmake-modules 
 	kde-frameworks/kactivities 
 	kde-frameworks/karchive 
 	kde-frameworks/kdbusaddons 
@@ -45,7 +44,8 @@ RDEPEND=">=dev-qt/qtcore-5.6.0
 	x11-libs/libX11 
 	x11-libs/libxcb"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	kde-frameworks/extra-cmake-modules"
 
 pkg_postinst(){
 	if has_version ">=dev-qt/qtcore-5.8"; then
