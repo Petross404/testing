@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils git-r3
+inherit cmake-utils
 
 DESCRIPTION="Configurable and efficient logging framework for C++"
 HOMEPAGE="https://github.com/froglogic/tracetool"
@@ -11,8 +11,8 @@ HOMEPAGE="https://github.com/froglogic/tracetool"
 LICENSE="GPL-3+"
 IUSE="doc"
 SLOT="0"
-EGIT_REPO_URI="https://github.com/froglogic/tracetool.git"
-KEYWORDS=""
+SRC_URI="https://github.com/froglogic/tracetool/archive/${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64"
 
 RDEPEND=""
 DEPEND=">=dev-util/cmake-3
@@ -28,11 +28,11 @@ DEPEND=">=dev-util/cmake-3
 	sys-libs/zlib
 	app-arch/bzip2
 	${RDEPEND}"
-	
+
 src_prepare(){
 	if ! use doc; then
 		sed -i '62,69 d' CMakeLists.txt || die
 	fi
-	
+
 	eapply_user
 }

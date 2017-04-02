@@ -24,25 +24,28 @@ SLOT="0"
 
 BUILD_DIR="${S}/build"
 
-RDEPEND=">=dev-qt/qtcore-5.6.0
-		>=dev-qt/qtgui-5.6.0
-		>=dev-qt/qtdbus-5.6.0
-		>=kde-frameworks/plasma-5.26
-		>=kde-frameworks/kpackage-5.26
-		>=kde-frameworks/kwayland-5.26
-		>=kde-frameworks/kactivities-5.26
-		>=kde-frameworks/kxmlgui-5.26
-		>=kde-frameworks/ki18n-5.26
-		>=kde-frameworks/karchive-5.26
-		>=kde-frameworks/knotifications-5.26
-		>=kde-frameworks/kdeclarative-5.26
-		>=kde-frameworks/kdbusaddons-5.26
-		>=kde-frameworks/kwindowsystem-5.26
-		x11-libs/libX11
-		x11-libs/libxcb"
+RDEPEND=">=dev-qt/qtcore-5.6.0 
+	>=dev-qt/qtdbus-5.6.0 
+	>=dev-qt/qtdeclarative-5.6.0 
+	>=dev-qt/qtgui-5.6.0 
+	>=dev-qt/qtwidgets-5.6.0 
+	>=dev-qt/qtx11extras-5.6.0 
+	kde-frameworks/extra-cmake-modules 
+	kde-frameworks/kactivities 
+	kde-frameworks/karchive 
+	kde-frameworks/kdbusaddons 
+	kde-frameworks/kdeclarative 
+	kde-frameworks/ki18n 
+	kde-frameworks/knotifications 
+	kde-frameworks/kpackage 
+	kde-frameworks/kwayland 
+	kde-frameworks/kwindowsystem 
+	kde-frameworks/kxmlgui 
+	kde-frameworks/plasma 
+	x11-libs/libX11 
+	x11-libs/libxcb"
 
-DEPEND="${RDEPEND}
-		dev-util/cmake"
+DEPEND="${RDEPEND}"
 
 pkg_postinst(){
 	if has_version ">=dev-qt/qtcore-5.8"; then
