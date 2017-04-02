@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils
+inherit cmake-utils kde5-functions
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
 HOMEPAGE="https://store.kde.org/p/1169519/
@@ -24,28 +24,28 @@ SLOT="0"
 
 BUILD_DIR="${S}/build"
 
-RDEPEND=">=dev-qt/qtcore-5.6.0 
-	>=dev-qt/qtdbus-5.6.0 
-	>=dev-qt/qtdeclarative-5.6.0 
-	>=dev-qt/qtgui-5.6.0 
-	>=dev-qt/qtwidgets-5.6.0 
-	>=dev-qt/qtx11extras-5.6.0 
-	kde-frameworks/kactivities 
-	kde-frameworks/karchive 
-	kde-frameworks/kconfigwidgets
-	kde-frameworks/kdbusaddons 
-	kde-frameworks/kdeclarative 
-	kde-frameworks/ki18n 
-	kde-frameworks/kpackage 
-	kde-frameworks/kwayland 
-	kde-frameworks/kwindowsystem 
-	kde-frameworks/kxmlgui 
-	kde-frameworks/plasma 
+RDEPEND="$(add_qt_dep qtcore 5.6.0)
+	$(add_qt_dep qtdbus 5.6.0)
+	$(add_qt_dep qtdeclarative 5.6.0)
+	$(add_qt_dep qtgui 5.6.0)
+	$(add_qt_dep qtwidgets 5.6.0)
+	$(add_qt_dep qtx11extras 5.6.0)
+	$(add_frameworks_dep kactivities)
+	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kdbusaddons)
+	$(add_frameworks_dep kdeclarative)
+	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kpackage)
+	$(add_frameworks_dep kwayland)
+	$(add_frameworks_dep kwindowsystem)
+	$(add_frameworks_dep kxmlgui)
+	$(add_frameworks_dep plasma)
 	x11-libs/libX11 
 	x11-libs/libxcb"
 
 DEPEND="${RDEPEND}
-	kde-frameworks/extra-cmake-modules"
+	$(add_frameworks_dep extra-cmake-modules)"
 
 pkg_postinst(){
 	if has_version ">=dev-qt/qtcore-5.8"; then
