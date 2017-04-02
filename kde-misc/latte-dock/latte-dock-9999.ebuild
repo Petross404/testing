@@ -13,17 +13,17 @@ https://github.com/psifidotos/Latte-Dock"
 if [[ ${PV} = 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/psifidotos/Latte-Dock.git"
-	KEYWORDS="**"
+	KEYWORDS=""
 	BUILD_DIR="${WORKDIR}/${P}/build"
 else
-	SRC_URI="https://codeload.github.com/psifidotos/${PN}/tar.gz/v${PV} -> ${P}.tar.gz "
+	SRC_URI="https://github.com/psifidotos/Latte-Dock/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 	S="${WORKDIR}/Latte-Dock-0.6"
 	BUILD_DIR="${WORKDIR}/Latte-Dock-${PV}/build"
 fi
 
 LICENSE="GPL-2+"
-SLOT="5"
+SLOT="0"
 
 RDEPEND=">=dev-qt/qtcore-5.6.0
 		>=dev-qt/qtgui-5.6.0
