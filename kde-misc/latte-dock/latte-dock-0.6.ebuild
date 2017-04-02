@@ -18,7 +18,7 @@ if [[ ${PV} = 9999 ]] ; then
 else
 	SRC_URI="https://codeload.github.com/psifidotos/${PN}/tar.gz/v${PV} -> ${P}.tar.gz "
 	KEYWORDS="~amd64 ~x86"
-	"${S}"="${WORKDIR}/Latte-Dock-0.6"
+	S="${WORKDIR}/Latte-Dock-0.6"
 	BUILD_DIR="${WORKDIR}/Latte-Dock-${PV}/build"
 fi
 
@@ -34,5 +34,4 @@ DEPEND=">=dev-qt/qtcore-5.6.0
 		>=kde-frameworks/kdeclarative-5.26
 		>=kde-frameworks/kdbusaddons-5.26"
 RDEPEND="${DEPEND}"
-
 
