@@ -8,5 +8,6 @@
 	</maintainer>
 	<use>
 		<flag name="doc">Add extra documentation (API, Javadoc, etc). It is recommended to enable per package instead of globally</flag>
+		<flag name="examples">Install examples, usually source code</flag>
 	</use>
 </pkgmetadata>

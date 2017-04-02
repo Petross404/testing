@@ -30,6 +30,8 @@ DEPEND="$(add_qt_dep qtcore)
 src_prepare() {
 	if ! use doc; then
 		sed -i '62,69 d' CMakeLists.txt || die
+	fi
+	if ! use examples; then
 		sed -i '/ADD_SUBDIRECTORY(examples/d' CMakeLists.txt || die
 	fi
 	eapply_user
