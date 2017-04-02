@@ -28,16 +28,24 @@ RDEPEND=">=dev-qt/qtcore-5.6.0
 	>=dev-qt/qtdbus-5.6.0 
 	>=dev-qt/qtdeclarative-5.6.0 
 	>=dev-qt/qtgui-5.6.0 
+	>=dev-qt/qtnetwork-5.6.0
+	>=dev-qt/qtprintsupport-5.6.0
+	>=dev-qt/qtsvg-5.6.0
+	>=dev-qt/qtsql-5.6.0
 	>=dev-qt/qtwidgets-5.6.0 
 	>=dev-qt/qtx11extras-5.6.0 
+	>=dev-qt/qtxml-5.6.0
 	kde-frameworks/kactivities 
 	kde-frameworks/karchive 
+	kde-frameworks/kconfigwidgets
 	kde-frameworks/kdbusaddons 
 	kde-frameworks/kdeclarative 
 	kde-frameworks/ki18n 
+	kde-frameworks/kio
 	kde-frameworks/knotifications 
 	kde-frameworks/kpackage 
 	kde-frameworks/kwayland 
+	kde-frameworks/kwidgetsaddons
 	kde-frameworks/kwindowsystem 
 	kde-frameworks/kxmlgui 
 	kde-frameworks/plasma 
