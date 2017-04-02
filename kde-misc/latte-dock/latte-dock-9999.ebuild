@@ -14,7 +14,6 @@ https://github.com/psifidotos/Latte-Dock"
 if [[ ${PV} = 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/psifidotos/Latte-Dock.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/psifidotos/Latte-Dock/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
@@ -52,9 +51,11 @@ DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)"
 
 pkg_postinst(){
+
 	if has_version ">=dev-qt/qtcore-5.8"; then
 		ewarn "Qt5.8 is known to cause build and runtime problems. If you"
 		ewarn "experience problems while running Latte Dock,please check this"
 		ewarn "out: https://github.com/psifidotos/Latte-Dock/issues/183"
 	fi
+
 }
