@@ -51,11 +51,9 @@ DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)"
 
 pkg_postinst() {
-
 	if has_version "dev-qt/qtcore:5.8" ; then
 		ewarn "Qt5.8 is known to cause build and runtime problems. If you"
 		ewarn "experience problems while running Latte Dock,please check this"
 		ewarn "out: https://github.com/psifidotos/Latte-Dock/issues/183"
 	fi
-
 }
