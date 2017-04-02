@@ -29,7 +29,7 @@ BUILD_DIR="${S}/build"
 RDEPEND="$(add_qt_dep qtcore)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui 'xcb')
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtx11extras)
 	$(add_frameworks_dep kactivities)
