@@ -44,13 +44,13 @@ RDEPEND="$(add_qt_dep qtcore)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
 	$(add_frameworks_dep plasma X)
-	x11-libs/libX11 
+	x11-libs/libX11
 	x11-libs/libxcb"
 
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)"
 
-pkg_postinst(){
+pkg_postinst() {
 
 	if has_version "dev-qt/qtcore:5.8" ; then
 		ewarn "Qt5.8 is known to cause build and runtime problems. If you"
