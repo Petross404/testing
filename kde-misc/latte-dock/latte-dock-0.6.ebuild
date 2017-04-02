@@ -21,6 +21,7 @@ fi
 
 LICENSE="GPL-2+"
 SLOT="0"
+IUSE=""
 
 BUILD_DIR="${S}/build"
 
@@ -32,6 +33,7 @@ RDEPEND="$(add_qt_dep qtcore)
 	$(add_qt_dep qtx11extras)
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
+	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kconfigwidgets)
 	$(add_frameworks_dep kdbusaddons)
 	$(add_frameworks_dep kdeclarative)
@@ -40,7 +42,7 @@ RDEPEND="$(add_qt_dep qtcore)
 	$(add_frameworks_dep kwayland)
 	$(add_frameworks_dep kwindowsystem)
 	$(add_frameworks_dep kxmlgui)
-	$(add_frameworks_dep plasma)
+	$(add_frameworks_dep plasma X)
 	x11-libs/libX11 
 	x11-libs/libxcb"
 
