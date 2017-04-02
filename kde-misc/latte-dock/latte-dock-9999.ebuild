@@ -3,6 +3,8 @@
 
 EAPI=6
 
+KDE_GCC_MINIMAL="4.9"
+
 inherit cmake-utils kde5-functions
 
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
