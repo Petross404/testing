@@ -39,7 +39,6 @@ RDEPEND=">=dev-qt/qtcore-5.6.0
 		>=kde-frameworks/kdeclarative-5.26
 		>=kde-frameworks/kdbusaddons-5.26
 		>=kde-frameworks/kwindowsystem-5.26
-		>=kde-plasma/plasma-workspace-5.8
 		x11-libs/libxcb"
 
 DEPEND="${RDEPEND}
