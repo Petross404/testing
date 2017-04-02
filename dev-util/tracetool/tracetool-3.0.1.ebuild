@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils
+inherit cmake-utils kde5-functions
 
 DESCRIPTION="Configurable and efficient logging framework for C++"
 HOMEPAGE="https://github.com/froglogic/tracetool"
@@ -15,24 +15,23 @@ SRC_URI="https://github.com/froglogic/tracetool/archive/${PV}.tar.gz -> ${P}.tar
 KEYWORDS="~amd64"
 
 RDEPEND=""
-DEPEND=">=dev-util/cmake-3
-	>=dev-qt/qtcore-5.6.0
-	>=dev-qt/qtgui-5.6.0
-	>=dev-qt/qtwidgets-5.6.0
-	>=dev-qt/qtnetwork-5.6.0
-	doc? ( app-doc/doxygen )
+DEPEND="$(add_qt_dep qtcore)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtnetwork)
+	$(add_qt_dep qtwidgets)
+	app-arch/bzip2
+	dev-db/sqlite
 	dev-libs/libpcre
 	dev-libs/tinyxml
-	dev-db/sqlite
+	doc? ( app-doc/doxygen )
 	sys-libs/readline
 	sys-libs/zlib
-	app-arch/bzip2
 	${RDEPEND}"
 
-src_prepare(){
+src_prepare() {
 	if ! use doc; then
 		sed -i '62,69 d' CMakeLists.txt || die
+		sed -i '/ADD_SUBDIRECTORY(examples/d' CMakeLists.txt || die
 	fi
-
 	eapply_user
 }

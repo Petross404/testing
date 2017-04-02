@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>petross404@gmail.com</email>
+		<name>Petross404 (Petros S)</name>
+		<description>maintainer</description>
+	</maintainer>
+	<use>
+		<flag name="doc">Add extra documentation (API, Javadoc, etc). It is recommended to enable per package instead of globally</flag>
+	</use>
+</pkgmetadata>
