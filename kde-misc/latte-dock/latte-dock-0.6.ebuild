@@ -18,7 +18,7 @@ if [[ ${PV} = 9999 ]] ; then
 else
 	SRC_URI="https://codeload.github.com/psifidotos/${PN}/tar.gz/v${PV} -> ${P}.tar.gz "
 	KEYWORDS="~amd64 ~x86"
-	"${S}"="${WORKDIR}/Latte-Dock-0.6"
+	S="${WORKDIR}/Latte-Dock-0.6"
 	BUILD_DIR="${WORKDIR}/Latte-Dock-${PV}/build"
 fi
 
@@ -39,9 +39,16 @@ RDEPEND=">=dev-qt/qtcore-5.6.0
 		>=kde-frameworks/kdeclarative-5.26
 		>=kde-frameworks/kdbusaddons-5.26
 		>=kde-frameworks/kwindowsystem-5.26
+		>=kde-plasma/plasma-workspace-5.8
 		x11-libs/libxcb"
 
 DEPEND="${RDEPEND}
 		dev-util/cmake"
 
-
+pkg_postinst(){
+	if has_version ">=dev-qt/qtcore-5.8"; then
+		ewarn "Qt5.8 is known to cause build and runtime problems. If you"
+		ewarn "experience problems while running Latte Dock,please check this"
+		ewarn "out: https://github.com/psifidotos/Latte-Dock/issues/183"
+	fi
+}
