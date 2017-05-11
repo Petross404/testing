@@ -10,13 +10,14 @@ DESCRIPTION="FF Multi Converter is a GUI application that converts multiple medi
 HOMEPAGE="https://sites.google.com/site/ffmulticonverter/"
 SRC_URI="https://sourceforge.net/projects/ffmulticonv/files/${P}.tar.gz"
 
-LICENSE="GPL"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=dev-python/PyQt5-5.7.1
+RDEPEND="dev-python/PyQt5
 	app-office/unoconv
 	media-gfx/imagemagick
 	media-video/ffmpeg"
-DEPEND="${RDEPEND}" 
+
+DEPEND="${RDEPEND}"
