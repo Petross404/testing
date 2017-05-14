@@ -18,15 +18,16 @@ COMMON_DEPEND="
 	$(add_frameworks_dep kconfig)
 	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep ki18n)
+	$(add_frameworks_dep kiconthemes)
+	$(add_frameworks_dep kitemmodels)
 	$(add_frameworks_dep kio)
 	$(add_frameworks_dep ktexteditor)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtcore)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qttest)
 	dev-util/kdevplatform:5
 "
 DEPEND="${COMMON_DEPEND}
-	$(add_frameworks_dep kdelibs4support)
 	$(add_frameworks_dep threadweaver)
 "
 RDEPEND="${COMMON_DEPEND}

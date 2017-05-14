@@ -6,18 +6,35 @@ PYTHON_COMPAT=( python{3_4,3_5,3_6} )
 
 inherit eutils distutils-r1
 
-DESCRIPTION="FF Multi Converter is a GUI application that converts multiple media formats"
+DESCRIPTION="PyQt5 converter for audio, video, image and document files"
 HOMEPAGE="https://sites.google.com/site/ffmulticonverter/"
 SRC_URI="https://sourceforge.net/projects/ffmulticonv/files/${P}.tar.gz"
 
-LICENSE="GPL-2+"
+LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND="dev-python/PyQt5
-	app-office/unoconv
+RDEPEND=" ${PYTHON_DEPS}
+	media-video/ffmpeg
 	media-gfx/imagemagick
-	media-video/ffmpeg"
+	app-office/unoconv"
 
 DEPEND="${RDEPEND}"
+
+pkg_postinst() {
+	if ! ( has_version "media-video/ffmpeg" ) ; then
+		ewarn "The program does NOT require ffmpeg to run,"
+		ewarn "but you won't be able to convert media files."
+	fi
+
+	if ! ( has_version "media-gfx/imagemagick" ) ; then
+		ewarn "The program does NOT require ImageMagick to run,"
+		ewarn "but you won't be able to convert image files."
+	fi
+
+	if ! ( has_version "app-office/unoconv" ) ; then
+		ewarn "The program does NOT require unoconv to run,"
+		ewarn "but you won't be able to convert between LO files."
+	fi
+}
