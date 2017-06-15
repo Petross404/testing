@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>petross404@gmail.com</email>
+		<name>Petros S</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<use>
+	<flag name="client">Build the GammaRay client and in-process UI.</flag>
+	<flag name="feedback">Enable user feedback support.</flag>
+	<flag name="3d">Support for Qt5-3D.</flag>
+	</use>
+</pkgmetadata>
