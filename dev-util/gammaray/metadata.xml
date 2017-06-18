@@ -11,7 +11,7 @@
 	</maintainer>
 	<use>
 	<flag name="client">Build the GammaRay client and in-process UI.</flag>
+	<flag name="extras">Enable optional Qt features (3D, bluetooth, positioning etc).</flag>
 	<flag name="feedback">Enable user feedback support.</flag>
-	<flag name="3d">Support for Qt5-3D.</flag>
 	</use>
 </pkgmetadata>

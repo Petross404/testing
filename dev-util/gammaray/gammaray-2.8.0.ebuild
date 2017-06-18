@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit kde5 git-r3
+inherit kde5
 
 DESCRIPTION="Poke around in a Qt-application and manipulate the application to some extent"
 HOMEPAGE="https://github.com/KDAB/GammaRay"
@@ -12,8 +12,8 @@ LICENSE="GPL-2+"
 IUSE="+client -doc -extras feedback wayland"
 SLOT="0"
 
-EGIT_REPO_URI="https://github.com/KDAB/GammaRay.git"
-KEYWORDS=""
+SRC_URI="https://github.com/KDAB/GammaRay/releases/download/v${PV}/${P}.tar.gz"
+KEYWORDS="~amd64 ~x86"
 
 RDEPEND="extras? (
 			$(add_qt_dep designer)
