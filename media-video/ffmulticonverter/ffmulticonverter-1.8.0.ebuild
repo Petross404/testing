@@ -15,17 +15,18 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE=""
 
-RDEPEND=" ${PYTHON_DEPS}
-	media-video/ffmpeg
+RDEPEND="${PYTHON_DEPS}
+	app-office/unoconv
+	dev-python/PyQt5
 	media-gfx/imagemagick
-	app-office/unoconv"
+	media-video/ffmpeg"
 
 DEPEND="${RDEPEND}"
 
 pkg_postinst() {
-	if ! ( has_version "media-video/ffmpeg" ) ; then
-		ewarn "The program does NOT require ffmpeg to run,"
-		ewarn "but you won't be able to convert media files."
+	if ! ( has_version "app-office/unoconv" ) ; then
+		ewarn "The program does NOT require unoconv to run,"
+		ewarn "but you won't be able to convert between LO files."
 	fi
 
 	if ! ( has_version "media-gfx/imagemagick" ) ; then
@@ -33,8 +34,8 @@ pkg_postinst() {
 		ewarn "but you won't be able to convert image files."
 	fi
 
-	if ! ( has_version "app-office/unoconv" ) ; then
-		ewarn "The program does NOT require unoconv to run,"
-		ewarn "but you won't be able to convert between LO files."
+	if ! ( has_version "media-video/ffmpeg" ) ; then
+		ewarn "The program does NOT require ffmpeg to run,"
+		ewarn "but you won't be able to convert media files."
 	fi
 }
