@@ -5,7 +5,7 @@ EAPI=6
 
 inherit cmake-utils git-r3
 
-DESCRIPTION="OSX-like fork of Breeze window decoration for Plasma"
+DESCRIPTION="OSX-like window decoration for KDE Plasma, fork of Breeze"
 HOMEPAGE="https://github.com/ishovkun/SierraBreeze"
 EGIT_REPO_URI="https://github.com/ishovkun/SierraBreeze.git"
 
