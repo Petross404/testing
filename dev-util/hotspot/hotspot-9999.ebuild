@@ -12,7 +12,7 @@ HOMEPAGE="https://github.com/KDAB/hotspot"
 
 if [[ ${PV} = 9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/KDAB/hotspot.git"
+	EGIT_REPO_URI="https://github.com/KDAB/${PN}.git"
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/KDAB/${PN}/releases/download/v${PV}/${PN}-v${PV}.tar.gz -> ${P}.tar.gz"
@@ -49,7 +49,7 @@ DEPEND="
 	>=dev-util/cmake-3.1"
 
 src_prepare() {
-	test-flag-CXX -std=c++11 || die "At least C++11 is required to build ${PN}"
+	test-flag-CXX -std=c++11 || die "A c++11 capable compiler is required to build ${PN}"
 	cmake-utils_src_prepare
 }
 
