@@ -25,12 +25,12 @@ IUSE="static-libs"
 SLOT="0"
 
 RDEPEND="
-	$(add_frameworks_dep coreaddons)
-	$(add_frameworks_dep i18n)
-	$(add_frameworks_dep itemmodels)
-	$(add_frameworks_dep itemviews)
-	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep ki18n)
 	$(add_frameworks_dep kio)
+	$(add_frameworks_dep kitemmodels)
+	$(add_frameworks_dep kitemviews)
+	$(add_frameworks_dep kconfigwidgets)
+	$(add_frameworks_dep kcoreaddons)
 	$(add_frameworks_dep solid)
 	$(add_frameworks_dep threadweaver)
 	$(add_qt_dep qtcore)
@@ -40,11 +40,13 @@ RDEPEND="
 	$(add_qt_dep qttest)
 	$(add_qt_dep qtwidgets)
 	$(add_qt_dep qtxml)
-	dev-libs/elfutils"
+	dev-libs/elfutils
+	sys-devel/gettext"
 
 DEPEND="
 	${RDEPEND}
-	$(add_frameworks_dep extra-cmake-modules)"
+	$(add_frameworks_dep extra-cmake-modules)
+	>=dev-util/cmake-3.1"
 
 src_prepare() {
 	test-flag-CXX -std=c++11 || die "At least C++11 is required to build ${PN}"
