@@ -45,8 +45,7 @@ RDEPEND="
 
 DEPEND="
 	${RDEPEND}
-	$(add_frameworks_dep extra-cmake-modules)
-	>=dev-util/cmake-3.1"
+	$(add_frameworks_dep extra-cmake-modules)"
 
 src_prepare() {
 	test-flag-CXX -std=c++11 || die "A c++11 capable compiler is required to build ${PN}"
@@ -54,8 +53,8 @@ src_prepare() {
 }
 
 src_configure() {
-	mycmakeargs+=(
-		-DBUILD_SHARED_LIBS=$(usex static-libs)
+	local mycmakeargs+=(
+		-DBUILD_SHARED_LIBS=$(usex !static-libs)
 	)
 	cmake-utils_src_configure
 }
