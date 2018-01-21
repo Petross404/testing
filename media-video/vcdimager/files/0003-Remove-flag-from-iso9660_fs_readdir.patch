@@ -1,0 +1,53 @@
+From 0f09e9aaf5bc30304e8f8fb6b58ea7b9b4013034 Mon Sep 17 00:00:00 2001
+From: "Luke A. Guest" <laguest@archeia.com>
+Date: Wed, 3 Jan 2018 18:15:13 +0000
+Subject: [PATCH 3/3] Remove flag from iso9660_fs_readdir.
+
+---
+ frontends/cli/vcd-info.c    | 2 +-
+ frontends/xml/vcd_xml_rip.c | 2 +-
+ lib/info.c                  | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/frontends/cli/vcd-info.c b/frontends/cli/vcd-info.c
+index 5c2845a..57dec45 100644
+--- a/frontends/cli/vcd-info.c
++++ b/frontends/cli/vcd-info.c
+@@ -928,7 +928,7 @@ _dump_fs_recurse (const vcdinfo_obj_t *obj, const char pathname[])
+   CdioListNode_t *entnode;
+   CdIo_t *cdio = vcdinfo_get_cd_image(obj);
+ 
+-  entlist = iso9660_fs_readdir (cdio, pathname, true);
++  entlist = iso9660_fs_readdir (cdio, pathname);
+     
+   fprintf (stdout, " %s:\n", pathname);
+ 
+diff --git a/frontends/xml/vcd_xml_rip.c b/frontends/xml/vcd_xml_rip.c
+index 76cd315..c1bd454 100644
+--- a/frontends/xml/vcd_xml_rip.c
++++ b/frontends/xml/vcd_xml_rip.c
+@@ -145,7 +145,7 @@ static int
+ _parse_isofs_r (vcdxml_t *p_vcdxml, CdIo_t *p_cdio, 
+ 		const char pathname[])
+ { 
+-  CdioList_t *entlist = iso9660_fs_readdir (p_cdio, pathname, true);
++  CdioList_t *entlist = iso9660_fs_readdir (p_cdio, pathname);
+   CdioListNode_t *entnode;
+ 
+   if (entlist == NULL)
+diff --git a/lib/info.c b/lib/info.c
+index ba64a33..771af1e 100644
+--- a/lib/info.c
++++ b/lib/info.c
+@@ -106,7 +106,7 @@ _init_segments (vcdinfo_obj_t *p_obj)
+ 
+   if (NULL == p_obj->seg_sizes || 0 == num_segments) return;
+ 
+-  entlist = iso9660_fs_readdir(p_obj->img, "SEGMENT", true);
++  entlist = iso9660_fs_readdir(p_obj->img, "SEGMENT");
+ 
+   i=0;
+   _CDIO_LIST_FOREACH (entnode, entlist) {
+-- 
+2.15.1
+
