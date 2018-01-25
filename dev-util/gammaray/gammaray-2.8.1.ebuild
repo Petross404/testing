@@ -19,7 +19,7 @@ RDEPEND="extras? (
 			$(add_qt_dep designer)
 			$(add_qt_dep qt3d)
 			$(add_qt_dep qtbluetooth)
- 			$(add_qt_dep qtconcurrent)
+			$(add_qt_dep qtconcurrent)
 			$(add_qt_dep qtpositioning)
 			$(add_qt_dep qtprintsupport)
 			$(add_qt_dep qtquickcontrols2)
