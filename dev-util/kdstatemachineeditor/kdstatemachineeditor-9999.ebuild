@@ -3,7 +3,7 @@
 
 EAPI=6
 
-QT_MINIMAL=5.3
+QT_MINIMAL="5.3"
 
 inherit cmake-utils kde5-functions multilib
 
@@ -27,19 +27,19 @@ LICENSE="GPL-2+"
 IUSE="doc doxygen examples +system-graphviz testing"
 SLOT="0"
 
-DEPEND="
+RDEPEND="
 	doc? ( $(add_qt_dep qthelp) )
 	doxygen? ( app-doc/doxygen )
 	system-graphviz? ( media-gfx/graphviz )
 	testing? ( $(add_qt_dep qttest) )
 	$(add_qt_dep qtcore)
-    $(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
 	"
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}"
 
 src_configure() {
 	local mycmakeargs+=(
