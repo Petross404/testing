@@ -22,7 +22,7 @@ fi
 
 LICENSE="GPL-2+"
 IUSE="3d auto-detect backtrace backtrace-symbol bluetooth +client \
-	concurrent designer -doc feedback +gpl-only-features kdsme\
+	concurrent designer -doc feedback +gpl-only-features \
 	position printsupport scxml svg testing qml unwind \
 	wayland webengine"
 
@@ -47,7 +47,6 @@ RDEPEND="
 		$(add_qt_dep qtwidgets)
 		$(add_qt_dep qtxml)
 		$(add_frameworks_dep kitemmodels)
-		kdsme?		( dev-util/kdstatemachineeditor )
 "
 
 DEPEND="${RDEPEND}"
@@ -87,4 +86,11 @@ src_configure(){
 		-DSTACK_WALKING_UNWIND=$(usex unwind)
 	)
 	cmake-utils_src_configure
+}
+
+pkg_postinst() {
+	ewarn
+	ewarn "Install dev-util/kdstatemachineeditor as optional dependency"
+	ewarn "for graphical state machine debugging support"
+	ewarn
 }
