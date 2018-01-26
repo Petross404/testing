@@ -9,7 +9,7 @@ QT_MINIMAL="5.9"
 
 DESCRIPTION="High-level runtime introspection tool for Qt applications"
 HOMEPAGE="https://github.com/KDAB/GammaRay \
-			https://www.kdab.com/?s=gammaray"
+		https://www.kdab.com/?s=gammaray"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
