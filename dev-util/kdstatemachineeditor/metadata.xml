@@ -10,7 +10,7 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<use>
-	<flag name="doc">Install KDStateMachineEditor documentation. Enable per package</flag>
+	<flag name="doc">Install KDStateMachineEditor documentation</flag>
 	<flag name="system-graphviz">Add support for the Graphviz library</flag>
 	<flag name="testing">Build the testing tree</flag>
 	</use>
