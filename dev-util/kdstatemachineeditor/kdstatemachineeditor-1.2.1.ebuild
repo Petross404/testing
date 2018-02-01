@@ -27,8 +27,8 @@ IUSE="doc doxygen examples +system-graphviz testing"
 SLOT="0"
 
 RDEPEND="
-	doc?				( $(add_qt_dep qthelp) )
-	doxygen?	(?doc)	( app-doc/doxygen )
+	doc?			( $(add_qt_dep qthelp) )
+	doxygen?		( app-doc/doxygen )
 	system-graphviz?	( media-gfx/graphviz )
 	testing?			( $(add_qt_dep qttest) )
 	$(add_qt_dep qtcore)
@@ -39,6 +39,8 @@ RDEPEND="
 "
 
 DEPEND="${RDEPEND}"
+
+REQUIRED_USE="doxygen? ( doc )"
 
 src_configure() {
 	local mycmakeargs+=(
