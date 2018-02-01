@@ -14,7 +14,6 @@ HOMEPAGE="https://github.com/KDAB/GammaRay \
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/KDAB/GammaRay.git"
-	KEYWORDS=""
 else
 	SRC_URI="https://github.com/KDAB/GammaRay/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"

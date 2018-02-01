@@ -1,0 +1,20 @@
+--- org/CMakeLists.txt	2018-01-29 22:44:39.796146500 +0200
++++ new/CMakeLists.txt	2018-01-30 12:16:36.929961528 +0200
+@@ -25,7 +25,7 @@
+ 
+ option(BUILD_DOCUMENTATION "Create and install the HTML based API        
+ documentation (requires Doxygen)" OFF)
+-if(BUILD_DOCUMENTATION AND CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
++if(BUILD_DOCUMENTATION AND CMAKE_BUILD_TYPE MATCHES "Gentoo")
+ 	find_package(Doxygen)
+     if(NOT DOXYGEN_FOUND)
+          message(FATAL_ERROR "Doxygen is needed to build the documentation.")
+@@ -50,7 +50,7 @@
+                       VERBATIM)
+                       
+ 	install(DIRECTORY ${DOXYGEN_OUTPUT_DIRECTORY}/html DESTINATION ${CMAKE_INSTALL_DOCDIR})
+-endif(BUILD_DOCUMENTATION AND CMAKE_BUILD_TYPE MATCHES "^[Rr]elease")
++endif(BUILD_DOCUMENTATION AND CMAKE_BUILD_TYPE MATCHES "Gentoo")
+ 
+ set(HEADER_DIRECTORY ${PROJECT_SOURCE_DIR}/src/headers/)
+ add_subdirectory(src)

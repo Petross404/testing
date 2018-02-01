@@ -14,9 +14,6 @@ HOMEPAGE="https://github.com/KDAB/KDStateMachineEditor/ \
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/KDAB/KDStateMachineEditor.git"
-	KEYWORDS=""
-	#If upstream accepts patch, this will be removed
-	PATCHES=( "$FILESDIR/fix_hardcoded_installation_dirs.patch" )
 else
 	SRC_URI="https://github.com/KDAB/KDStateMachineEditor/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
