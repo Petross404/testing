@@ -30,7 +30,7 @@ RDEPEND="
 	doc?			( $(add_qt_dep qthelp) )
 	doxygen?		( app-doc/doxygen )
 	system-graphviz?	( media-gfx/graphviz )
-	testing?			( $(add_qt_dep qttest) )
+	testing?		( $(add_qt_dep qttest) )
 	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
