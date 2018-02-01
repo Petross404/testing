@@ -14,13 +14,12 @@ HOMEPAGE="https://github.com/KDAB/KDStateMachineEditor/ \
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/KDAB/KDStateMachineEditor.git"
-	KEYWORDS=""
-	#If upstream accepts patch, this will be removed
-	PATCHES=( "$FILESDIR/fix_hardcoded_installation_dirs.patch" )
 else
 	SRC_URI="https://github.com/KDAB/KDStateMachineEditor/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
-	PATCHES=( "$FILESDIR/fix_hardcoded_installation_dirs.patch" )
+	if [[ ${PV} == 1.2.1 ]] ; then
+		PATCHES=( "$FILESDIR/fix_hardcoded_installation_dirs-1.2.1.patch" )
+	fi
 fi
 
 LICENSE="GPL-2+"
@@ -28,10 +27,10 @@ IUSE="doc doxygen examples +system-graphviz testing"
 SLOT="0"
 
 RDEPEND="
-	doc? ( $(add_qt_dep qthelp) )
-	doxygen? ( app-doc/doxygen )
-	system-graphviz? ( media-gfx/graphviz )
-	testing? ( $(add_qt_dep qttest) )
+	doc?				( $(add_qt_dep qthelp) )
+	doxygen?	(?doc)	( app-doc/doxygen )
+	system-graphviz?	( media-gfx/graphviz )
+	testing?			( $(add_qt_dep qttest) )
 	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)

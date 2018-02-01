@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils gnome2-utils kde5-functions
+inherit cmake-utils kde5-functions
 
 DESCRIPTION="Plasma 5 applet for controlling currently active window"
 HOMEPAGE="https://store.kde.org/p/998910/
@@ -34,17 +34,3 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)
 "
-
-DOCS=( LICENSE )
-
-pkg_preinst() {
-	gnome2_icon_savelist
-}
-
-pkg_postinst() {
-	gnome2_icon_cache_update
-}
-
-pkg_postrm() {
-	gnome2_icon_cache_update
-}
