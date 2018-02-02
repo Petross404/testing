@@ -5,10 +5,10 @@ EAPI=6
 
 inherit kde5
 
+HOMEPAGE="https://store.kde.org/p/998910/"
 DESCRIPTION="Plasma 5 applet for controlling currently active window"
 LICENSE="GPL-2"
 KEYWORDS=""
-SLOT="5"
 IUSE=""
 
 RDEPEND="

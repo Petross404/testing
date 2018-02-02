@@ -16,7 +16,7 @@ EGIT_REPO_URI="https://github.com/LinuxCNC/linuxcnc"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-IUSE="+uspace +X +gtk gnome gstreamer modbus usb"
+IUSE="+libtirpc +uspace +X +gtk gnome gstreamer modbus usb"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -76,6 +76,9 @@ RDEPEND="
 	media-gfx/graphviz
 	x11-libs/libXinerama
 	media-libs/glu
+	!libtirpc? ( elibc_glibc? ( sys-libs/glibc[rpc(-)] ) )
+	libtirpc? ( net-libs/libtirpc )
+	net-libs/rpcsvc-proto
 "
 
 DEPEND="${RDEPEND}"
@@ -96,6 +99,7 @@ src_configure() {
 		$(use_with modbus libmodbus)
 		$(use_with usb libusb-1.0)
 		$(usex uspace '--with-realtime=uspace' '')
+		$(use_with libtirpc)
 		--enable-non-distributable=yes
 		--with-boost-python=boost_python-2.7
 	)

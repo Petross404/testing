@@ -1,0 +1,29 @@
+--- linuxcnc-9999/src/configure.ac.1	2018-02-02 22:36:08.201730746 +0200
++++ linuxcnc-9999/src/configure.ac	2018-02-02 22:38:09.625635206 +0200
+@@ -71,6 +71,26 @@
+ ]], [])],
+     [ac_cv_boost_python=yes], [ac_cv_boost_python=no])])
+ 
++##########################################
++#Allow linuxcnc to build with >glibc.2.26 due to missing rpc.h
++AC_ARG_WITH([libtirpc],
++      [AS_HELP_STRING([--with-libtirpc], [Use libtirpc as RPC implementation (instead of sunrpc)])])
++
++AS_IF([test "x$with_libtirpc" = xyes], 
++      [PKG_CHECK_MODULES([TIRPC], 
++                         [libtirpc], 
++                         [RPC_CFLAGS=$TIRPC_CFLAGS; RPC_LIBS=$TIRPC_LIBS;],
++                        [AC_MSG_ERROR([libtirpc requested, but library not found.])]
++                       )], 
++      [AC_CHECK_HEADER(rpc/rpc.h, 
++                      [RPC_CFLAGS=""; RPC_LIBS="";],
++                      [AC_MSG_ERROR([sunrpc requested, but headers are not present.])]
++                     )]
++)
++
++AC_SUBST(RPC_CFLAGS)
++AC_SUBST(RPC_LIBS)
++########################################
+ AS_IF([test "x$ac_cv_boost_python" = xyes],
+ [
+   BOOST_PYTHON_LIBS=

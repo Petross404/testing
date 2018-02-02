@@ -9,11 +9,8 @@ DESCRIPTION="Plasma 5 applet for controlling currently active window"
 HOMEPAGE="https://store.kde.org/p/998910/"
 
 SRC_URI="https://github.com/kotelnik/plasma-applet-active-window-control/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+
 KEYWORDS="~amd64 ~x86"
-
-#ebuilds for releases > 1.7.3 will be copied from live ebuild
-S="${WORKDIR}/plasma-applet-active-window-control-${PV}"
-
 LICENSE="GPL-2"
 SLOT="5"
 IUSE=""
@@ -31,3 +28,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	$(add_frameworks_dep extra-cmake-modules)
 "
+
+#ebuilds for releases > 1.7.3 will be copied from live ebuild
+S="${WORKDIR}/plasma-applet-active-window-control-${PV}"
