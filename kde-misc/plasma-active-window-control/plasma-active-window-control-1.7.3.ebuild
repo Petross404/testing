@@ -6,8 +6,7 @@ EAPI=6
 inherit cmake-utils kde5-functions
 
 DESCRIPTION="Plasma 5 applet for controlling currently active window"
-HOMEPAGE="https://store.kde.org/p/998910/ \
-	https://github.com/kotelnik/plasma-applet-active-window-control"
+HOMEPAGE="https://store.kde.org/p/998910/
 
 SRC_URI="https://github.com/kotelnik/plasma-applet-active-window-control/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 KEYWORDS="~amd64 ~x86"
