@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils kde5-functions git-r3
+inherit cmake-utils kde5-functions
 
 QT_MINIMAL="5.9"
 
@@ -20,12 +20,11 @@ else
 fi
 
 LICENSE="GPL-2+"
+SLOT=0
 IUSE="3d auto-detect backtrace backtrace-symbol bluetooth +client \
 	concurrent designer -doc feedback +gpl-only-features \
 	position printsupport scxml svg testing qml unwind \
 	wayland webengine"
-
-SLOT="0"
 
 RDEPEND="
 		3d?		( $(add_qt_dep qt3d) )

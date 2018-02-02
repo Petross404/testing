@@ -6,18 +6,16 @@ EAPI=6
 inherit cmake-utils kde5-functions
 
 DESCRIPTION="Plasma 5 applet for controlling currently active window"
-HOMEPAGE="https://store.kde.org/p/998910/
+HOMEPAGE="https://store.kde.org/p/998910/ \
 	https://github.com/kotelnik/plasma-applet-active-window-control"
 
-if [[ ${PV} == 9999 ]] ; then
-	inherit git-r3
-	EGIT_REPO_URI="https://github.com/kotelnik/${PN}.git"
-else
-	SRC_URI="https://github.com/kotelnik/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-fi
+SRC_URI="https://github.com/kotelnik/plasma-applet-active-window-control/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+KEYWORDS="~amd64 ~x86"
 
-LICENSE="GPL-2+"
+#ebuilds for releases > 1.7.3 will be copied from live ebuild
+S="${WORKDIR}/plasma-applet-active-window-control-${PV}"
+
+LICENSE="GPL-2"
 SLOT="5"
 IUSE=""
 
