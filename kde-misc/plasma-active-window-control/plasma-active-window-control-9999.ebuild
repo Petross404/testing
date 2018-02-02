@@ -6,10 +6,18 @@ EAPI=6
 inherit kde5
 
 DESCRIPTION="Plasma 5 applet for controlling currently active window"
-KEYWORDS=""
 LICENSE="GPL-2"
+KEYWORDS=""
 SLOT="5"
 IUSE=""
 
-DEPEND=""
-RDEPEND="${DEPEND}"
+RDEPEND="
+	$(add_frameworks_dep kconfig)
+	$(add_frameworks_dep kcoreaddons)
+	$(add_frameworks_dep plasma X)
+	$(add_qt_dep qtdbus)
+	$(add_qt_dep qtdeclarative)
+	$(add_qt_dep qtgui)
+	$(add_qt_dep qtwidgets)
+"
+DEPEND="${RDEPEND}"
