@@ -18,7 +18,7 @@ else
 	SRC_URI="https://github.com/KDAB/KDStateMachineEditor/releases/download/v${PV}/${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
 	if [[ ${PV} == 1.2.1 ]] ; then
-		PATCHES=( "$FILESDIR/fix_hardcoded_installation_dirs-1.2.1.patch" )
+		PATCHES=( "${FILESDIR}/fix_hardcoded_installation_dirs-1.2.1.patch" )
 	fi
 fi
 
