@@ -10,6 +10,7 @@
 		<name>Proxy Maintainers</name>
 	</maintainer>
 	<use>
+	<flag name="doxygen">Build doxygen documentation</flag>
 	<flag name="system-graphviz">Don't build the bundled graphviz</flag>
 	<flag name="testing">Build the testing tree</flag>
 	</use>

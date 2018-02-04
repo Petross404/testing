@@ -27,10 +27,6 @@ IUSE="doc doxygen examples +system-graphviz testing"
 SLOT="0"
 
 RDEPEND="
-	doc?			( $(add_qt_dep qthelp) )
-	doxygen?		( app-doc/doxygen )
-	system-graphviz?	( media-gfx/graphviz )
-	testing?		( $(add_qt_dep qttest) )
 	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtgui)
@@ -38,7 +34,12 @@ RDEPEND="
 	$(add_qt_dep qtwidgets)
 "
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	doc?			( $(add_qt_dep qthelp) )
+	doxygen?		( app-doc/doxygen )
+	system-graphviz?	( media-gfx/graphviz )
+	testing?		( $(add_qt_dep qttest) )
+"
 
 REQUIRED_USE="doxygen? ( doc )"
 
