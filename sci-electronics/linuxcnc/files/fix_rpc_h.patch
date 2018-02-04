@@ -1,0 +1,11 @@
+--- org/src/libnml/cms/cms_xup.hh	2018-02-03 17:48:32.960223641 +0200
++++ new/src/libnml/cms/cms_xup.hh	2018-02-03 17:48:54.430968084 +0200
+@@ -16,7 +16,7 @@
+ #define CMS_XUP_HH
+ 
+ extern "C" {
+-#include <rpc/rpc.h>		/* struct XDR */
++#include <tirpc/rpc/rpc.h>		/* struct XDR */
+ 
+ }
+ #include "cms_up.hh"		/* class CMS_UPDATER */

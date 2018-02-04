@@ -1,0 +1,11 @@
+--- a/include/timer.h	2018-02-04 13:41:41.418242914 +0200
++++ b/include/timer.h	2018-02-04 13:43:22.552696366 +0200
+@@ -230,7 +230,7 @@
+ long snd_timer_params_get_ticks(snd_timer_params_t * params);
+ void snd_timer_params_set_queue_size(snd_timer_params_t * params, long queue_size);
+ long snd_timer_params_get_queue_size(snd_timer_params_t * params);
+-void snd_timer_params_set_filter(snd_timer_params_t * params, unsigned int filter);
++void __attribute__ ((used)) snd_timer_params_set_filter(snd_timer_params_t * params, unsigned int filter);
+ unsigned int snd_timer_params_get_filter(snd_timer_params_t * params);
+ 
+ size_t snd_timer_status_sizeof(void);

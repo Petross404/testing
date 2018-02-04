@@ -1,10 +1,10 @@
---- linuxcnc-9999/src/Makefile.inc.in	2018-02-02 22:51:35.147554568 +0200
-+++ linuxcnc-9999/src/Makefile.inc.in	2018-02-02 23:02:24.227607437 +0200
+--- src/Makefile.inc.in.1	2018-02-03 15:53:31.445856209 +0200
++++ src/Makefile.inc.in	2018-02-03 15:55:28.070120806 +0200
 @@ -89,6 +89,10 @@
  MANDB = @MANDB@
  HIDRAW_H_USABLE = @HIDRAW_H_USABLE@
  
-+# support for missing rpc.h in >glibc-2.26
++# Overcome missing rpc.h with > glibc-2.26
 +INCS   = -I. @RPC_CFLAGS@
 +LIBS   = @LIBS@ -L$(srcdir) @RPC_LIBS@
 +

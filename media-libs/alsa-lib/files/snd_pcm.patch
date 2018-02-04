@@ -1,0 +1,11 @@
+--- a/src/pcm/pcm_hw.c	2018-02-04 13:50:45.905847716 +0200
++++ b/src/pcm/pcm_hw.c	2018-02-04 13:51:20.929847942 +0200
+@@ -493,7 +493,7 @@
+ 	return 0;
+ }
+ 
+-static int snd_pcm_hw_sw_params(snd_pcm_t *pcm, snd_pcm_sw_params_t * params)
++static int __attribute__ ((used)) snd_pcm_hw_sw_params(snd_pcm_t *pcm, snd_pcm_sw_params_t * params)
+ {
+ 	snd_pcm_hw_t *hw = pcm->private_data;
+ 	int fd = hw->fd, err;

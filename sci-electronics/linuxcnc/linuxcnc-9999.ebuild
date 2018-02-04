@@ -2,12 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="tk(+)"
 
-inherit git-r3 eutils autotools-utils python-single-r1
+inherit git-r3 eutils autotools python-single-r1
 
 DESCRIPTION="LinuxCNC controls CNC machines."
 HOMEPAGE="http://linuxcnc.org/"
@@ -17,6 +17,13 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE="+libtirpc +uspace +X +gtk gnome gstreamer modbus usb"
+PATCHES=(
+	"${FILESDIR}/fix_missingrpc_makefile.patch" \
+	"${FILESDIR}/fix_missingrpc.patch"
+	#"${FILESDIR}/fix_rpc_header.patch"
+	#"${FILESDIR}/fix_rpc_h.patch"
+)
+
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 RDEPEND="
@@ -88,20 +95,23 @@ S="$S/src"
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 src_prepare() {
-	default
+	eapply "${PATCHES[@]}"
+	#find . -type f -name "*.hh" -exec sh -c "sed -i'' -e 's/rpc\/rpc.h/tirpc\/rpc\/rpc.h/g' " - {} \ || die "sed failed"
+	#sed -i 's/<rpc/<tirpc\/rpc/g' $(find . -type f -name "*.hh") || die "error"
+	eapply_user
 	eautoreconf
 }
 
 src_configure() {
-	local myeconfargs=(
-		$(use_with X x)
-		$(use_enable gtk)
-		$(use_with modbus libmodbus)
-		$(use_with usb libusb-1.0)
-		$(usex uspace '--with-realtime=uspace' '')
-		$(use_with libtirpc)
-		--enable-non-distributable=yes
-		--with-boost-python=boost_python-2.7
-	)
-	autotools-utils_src_configure
+	econf \
+		$(use_with X x) \
+		$(use_enable gtk) \
+		$(use_with modbus libmodbus) \
+		$(use_with usb libusb-1.0) \
+		$(usex uspace '--with-realtime=uspace' '') \
+		$(use_with libtirpc) \
+		--with-libtirpc=yes \
+		--enable-non-distributable=yes \
+		--with-boost-python=boost_python-2.7 \
+		--enable-simulator
 }
