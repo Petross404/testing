@@ -11,19 +11,13 @@
 	</maintainer>
 	<use>
 	<flag name="3d">Build support for Qt5 3D modules</flag>
-	<flag name="auto-detect">Autodetect backward's stack details dependencies</flag>
-	<flag name="backtrace">Use backtrace from (e)glibc for stack walking</flag>
-	<flag name="backtrace-symbol">Use backtrace from (e)glibc for symbol resolution</flag>
-	<flag name="client">Build the GammaRay client and in-process UI.</flag>
 	<flag name="concurrent">Required for the GammaRay launcher process list</flag>
 	<flag name="designer">Widget .ui file export</flag>
-	<flag name="feedback">Enable user feedback support.</flag>
-	<flag name="gpl-only-features">Enable only GPL-licensed features</flag>
-	<flag name="position">Physical position determination support from Qt5 framework</flag>
+	<flag name="geolocation">Physical position determination support from Qt5 framework</flag>
 	<flag name="printsupport">Printing support library from the Qt5 framework. Required for widget PDF export</flag>
+	<flag name="script">Enable scripting support from the Qt5 framework</flag>
+	<flag name="qml">Build with Qt5 Quick support</flag>
 	<flag name="scxml">Build support for Qt5 State Chart XML (SCXML)</flag>
-	<flag name="testing">Build the testing tree</flag>
-	<flag name="unwind">Use compiler's unwind API</flag>
 	<flag name="webengine">Enable support for dev-qt/qtwebengine</flag>
 	</use>
 </pkgmetadata>

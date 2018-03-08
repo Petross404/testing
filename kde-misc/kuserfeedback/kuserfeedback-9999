@@ -1,0 +1,14 @@
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=6
+
+inherit cmake-utils kde5-functions
+
+DESCRIPTION="High-level runtime introspection tool for Qt applications"
+HOMEPAGE="https://github.com/KDAB/GammaRay"
+
+LICENSE="BSD"
+SLOT=0
+
+

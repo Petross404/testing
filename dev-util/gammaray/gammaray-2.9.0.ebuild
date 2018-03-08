@@ -16,10 +16,10 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="BSD"
+LICENSE="GPL-3 BSD MIT"
 SLOT=0
-IUSE="3d bluetooth concurrent designer -doc\
-	geolocation	printsupport script scxml svg test qml wayland webengine"
+IUSE="3d bluetooth concurrent designer -doc	geolocation	printsupport\
+	script scxml svg test qml wayland webengine"
 
 RDEPEND="
 	$(add_qt_dep qtcore)
