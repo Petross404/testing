@@ -18,7 +18,7 @@ fi
 
 LICENSE="GPL-3 BSD MIT"
 SLOT=0
-IUSE="3d bluetooth concurrent designer -doc	geolocation	printsupport\
+IUSE="3d bluetooth concurrent designer -doc geolocation printsupport\
 	script scxml svg test qml wayland webengine"
 
 RDEPEND="
