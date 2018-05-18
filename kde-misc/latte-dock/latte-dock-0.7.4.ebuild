@@ -5,21 +5,20 @@ EAPI=6
 
 inherit kde5
 
+if [[ ${KDE_BUILD_TYPE} = release ]]; then
+	SRC_URI="mirror://kde/stable/${PN}/${P}.tar.xz"
+	KEYWORDS="amd64 x86"
+fi
+
 DESCRIPTION="Elegant dock, based on KDE Frameworks"
 HOMEPAGE="https://store.kde.org/p/1169519/
 	https://github.com/psifidotos/Latte-Dock"
-
-if [[ ${KDE_BUILD_TYPE} = release ]] ; then
-	SRC_URI="https://github.com/psifidotos/Latte-Dock/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
-	S="${WORKDIR}/Latte-Dock-${PV}"
-fi
 
 LICENSE="GPL-2+"
 SLOT="0"
 IUSE=""
 
-RDEPEND="
+DEPEND="
 	$(add_frameworks_dep kactivities)
 	$(add_frameworks_dep karchive)
 	$(add_frameworks_dep kconfig)
@@ -47,8 +46,6 @@ RDEPEND="
 	x11-libs/libX11
 	x11-libs/libxcb
 "
-DEPEND="${RDEPEND}
-	$(add_frameworks_dep extra-cmake-modules)
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( CHANGELOG.md README.md TRANSLATORS )

@@ -16,9 +16,9 @@ else
 	KEYWORDS="~amd64"
 fi
 
-LICENSE="GPL-3 BSD MIT"
+LICENSE="GPL-2 BSD MIT"
 SLOT=0
-IUSE="3d bluetooth concurrent designer -doc	geolocation	printsupport\
+IUSE="3d bluetooth concurrent designer doc geolocation printsupport
 	script scxml svg test qml wayland webengine"
 
 RDEPEND="
@@ -47,9 +47,8 @@ DEPEND="${RDEPEND}
 "
 
 src_prepare(){
-	if use !script ; then
-		eapply "${FILESDIR}/disable-qt5script.patch"
-	fi
+	#This has to be removed in versions >2.9.0
+	eapply "${FILESDIR}/disable-qt5script.patch"
 
 	sed -i "/BackwardMacros.cmake/d" CMakeLists.txt || die
 	sed -i "/add_backward(gammaray_core)/d" core/CMakeLists.txt || die
@@ -76,8 +75,8 @@ src_configure(){
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Svg=$(usex !svg)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Scxml=$(usex !scxml)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=$(usex !test)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngine=$(usex !webengine)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngineWidgets=$(usex !webengine)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Widgets=$(usex !webengine)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WaylandCompositor=$(usex !wayland)
 		-DGAMMARAY_BUILD_DOCS=$(usex doc)
 		-DGAMMARAY_BUILD_UI=ON

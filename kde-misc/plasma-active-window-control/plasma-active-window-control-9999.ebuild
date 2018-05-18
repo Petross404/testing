@@ -19,8 +19,8 @@ RDEPEND="
 	$(add_frameworks_dep plasma X)
 	$(add_qt_dep qtdbus)
 	$(add_qt_dep qtdeclarative)
-	$(add_qt_dep qtgui [xcb])
-	$(add_qt_dep qtx11extras)
+	$(add_qt_dep qtgui)
 	$(add_qt_dep qtwidgets)
+	$(add_qt_dep qtx11extras)
 "
 DEPEND="${RDEPEND}"

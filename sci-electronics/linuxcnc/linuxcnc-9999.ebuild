@@ -18,8 +18,8 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+libtirpc +uspace +X +gtk gnome gstreamer modbus usb"
 PATCHES=(
-	"${FILESDIR}/fix_missingrpc_makefile.patch" \
-	"${FILESDIR}/fix_missingrpc.patch"
+	#"${FILESDIR}/fix_missingrpc_makefile.patch" \
+	#"${FILESDIR}/fix_missingrpc.patch"
 	#"${FILESDIR}/fix_rpc_header.patch"
 	#"${FILESDIR}/fix_rpc_h.patch"
 )
@@ -95,7 +95,7 @@ S="$S/src"
 AUTOTOOLS_IN_SOURCE_BUILD=1
 
 src_prepare() {
-	eapply "${PATCHES[@]}"
+	#eapply "${PATCHES[@]}"
 	#find . -type f -name "*.hh" -exec sh -c "sed -i'' -e 's/rpc\/rpc.h/tirpc\/rpc\/rpc.h/g' " - {} \ || die "sed failed"
 	#sed -i 's/<rpc/<tirpc\/rpc/g' $(find . -type f -name "*.hh") || die "error"
 	eapply_user
