@@ -32,9 +32,9 @@ DEPEND="
 	${RDEPEND}
 "
 
-src_configure(){
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_GRAPHVIZ=$(usex !graphviz)
-	)
-	cmake-utils_src_configure
+src_prepare(){
+        if ! use graphviz ; then
+                sed -i -e '/pkg_check_modules(GRAPHVIZ/d' CMakeLists.txt || die
+        fi
+	cmake-utils_src_prepare
 }

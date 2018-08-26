@@ -54,12 +54,12 @@ src_prepare(){
 
 src_configure(){
 	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dAnimation=$(usex !3d)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dExtras=$(usex !3d)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dInput=$(usex !3d)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dLogic=$(usex !3d)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dRender=$(usex !3d)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53dQuick=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DAnimation=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DExtras=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DInput=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DLogic=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DRender=$(usex !3d)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt53DQuick=$(usex !3d)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Bluetooth=$(usex !bluetooth)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Concurrent=$(usex !concurrent)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Designer=$(usex !designer)
@@ -72,9 +72,8 @@ src_configure(){
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Svg=$(usex !svg)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Scxml=$(usex !scxml)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Test=$(usex !test)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngine=$(usex !webengine)
-		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngineWidgets=$(usex !webengine)
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WaylandCompositor=$(usex !wayland)
+		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5WebEngineWidgets=$(usex !webengine)
 		-DGAMMARAY_BUILD_DOCS=$(usex doc)
 		-DGAMMARAY_BUILD_UI=ON
 		-DGAMMARAY_DISABLE_FEEDBACK=ON

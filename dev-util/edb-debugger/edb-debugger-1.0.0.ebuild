@@ -39,12 +39,10 @@ src_prepare(){
 	sed -i -e 's/GenericName=edb debugger/GenericName=Evan\x27s Debugger/' edb.desktop || die
 	sed -i -e 's/Comment=edb debugger/Comment=edb is a cross platform x86\/x86-64 debugger/' edb.desktop || die
 
+        if ! use graphviz ; then
+                sed -i -e '/pkg_check_modules(GRAPHVIZ/d' CMakeLists.txt || die
+        fi
+
 	cmake-utils_src_prepare
 }
 
-src_configure(){
-	local mycmakeargs=(
-		-DCMAKE_DISABLE_FIND_PACKAGE_GRAPHVIZ=$(usex !graphviz)
-	)
-	cmake-utils_src_configure
-}
