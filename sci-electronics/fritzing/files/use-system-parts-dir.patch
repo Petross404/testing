@@ -1,0 +1,10 @@
+--- a/fritzing.desktop	2017-10-19 14:47:52.059642652 +0300
++++ b/fritzing.desktop	2017-10-19 14:48:20.266759615 +0300
+@@ -3,6 +3,7 @@
+ Name=Fritzing
+ GenericName=Fritzing
+ Comment=Electronic Design Automation software
++Path=/usr/share/fritzing/parts
+ Exec=Fritzing
+ Icon=icons/fritzing_icon.png
+ Terminal=false

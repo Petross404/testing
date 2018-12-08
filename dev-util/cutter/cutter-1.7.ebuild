@@ -1,9 +1,9 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
-inherit qmake-utils
+inherit qmake-utils xdg-utils gnome2-utils
 
 DESCRIPTION="A Qt and C++ GUI for radare2 reverse engineering framework"
 HOMEPAGE="https://www.radare.org"
@@ -20,7 +20,7 @@ DEPEND="
 	>=dev-qt/qtgui-5.9.1:5
 	>=dev-qt/qtsvg-5.9.1:5
 	>=dev-qt/qtwidgets-5.9.1:5
-	>=dev-util/radare2-2.6.0
+	>=dev-util/radare2-2.7.0
 	jupyter? ( dev-python/jupyter )
 	webengine? ( >=dev-qt/qtwebengine-5.9.1:5[widgets] )
 "
@@ -43,4 +43,14 @@ src_configure() {
 
 src_install() {
 	emake INSTALL_ROOT="${D}" install
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	gnome2_icon_cache_update
 }

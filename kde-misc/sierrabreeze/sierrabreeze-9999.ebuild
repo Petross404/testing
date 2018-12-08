@@ -10,12 +10,15 @@ HOMEPAGE="https://github.com/ishovkun/SierraBreeze"
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/ishovkun/SierraBreeze.git"
+	EGIT_BRANCH="match-colors"
+	EGIT_REPO_URI="https://github.com/Petross404/SierraBreeze.git"
 fi
 
 LICENSE="GPL-3"
 IUSE="doc test"
 SLOT="5"
+
+DOCS=( "README.md" )
 
 RDEPEND="
 	$(add_frameworks_dep kwidgetsaddons)
@@ -29,10 +32,10 @@ RDEPEND="
 	$(add_qt_dep qtcore)
 	$(add_qt_dep qtdeclarative)
 	$(add_qt_dep qtdbus)
-	$(add_qt_dep qtgui)
+	$(add_qt_dep qtgui 'xcb')
 	$(add_qt_dep qtnetwork)
 	$(add_qt_dep qtwidgets)
-	$(add_qt_dep qt11extras)
+	x11-libs/libxcb
 "
 DEPEND="
 	${RDEPEND}

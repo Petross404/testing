@@ -20,7 +20,7 @@ DEPEND="
 	>=dev-qt/qtgui-5.9.1:5
 	>=dev-qt/qtsvg-5.9.1:5
 	>=dev-qt/qtwidgets-5.9.1:5
-	>=dev-util/radare2-2.6.0
+	>=dev-util/radare2-2.7.0
 	jupyter? ( dev-python/jupyter )
 	webengine? ( >=dev-qt/qtwebengine-5.9.1:5[widgets] )
 "

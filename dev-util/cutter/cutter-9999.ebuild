@@ -1,13 +1,13 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=6
 
-inherit qmake-utils
+inherit qmake-utils xdg-utils gnome2-utils git-r3
 
 DESCRIPTION="A Qt and C++ GUI for radare2 reverse engineering framework"
 HOMEPAGE="https://www.radare.org"
-SRC_URI="https://github.com/radareorg/cutter/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="https://github.com/radareorg/cutter.git"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -20,16 +20,12 @@ DEPEND="
 	>=dev-qt/qtgui-5.9.1:5
 	>=dev-qt/qtsvg-5.9.1:5
 	>=dev-qt/qtwidgets-5.9.1:5
-	>=dev-util/radare2-2.6.0
+	>=dev-util/radare2-2.7.0
 	jupyter? ( dev-python/jupyter )
 	webengine? ( >=dev-qt/qtwebengine-5.9.1:5[widgets] )
 "
 
 RDEPEND="${DEPEND}"
-
-PATCHES=(
-	"${FILESDIR}/${P}-python3-config.patch"
-)
 
 src_configure() {
 	local myqmakeargs=(
@@ -43,4 +39,14 @@ src_configure() {
 
 src_install() {
 	emake INSTALL_ROOT="${D}" install
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	gnome2_icon_cache_update
 }

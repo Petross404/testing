@@ -1,17 +1,17 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit qmake-utils git-r3
+inherit qmake-utils
 
 DESCRIPTION="Free EDA software to develop printed circuit boards"
 HOMEPAGE="http://librepcb.org/"
-EGIT_REPO_URI="https://github.com/LibrePCB/LibrePCB.git"
+SRC_URI="https://download.${PN}.org/releases/${PV}/${P}-source.zip"
 
 LICENSE="GPL-3+"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE=""
 
 RDEPEND="
@@ -24,7 +24,8 @@ RDEPEND="
 	dev-qt/qtwidgets:5
 	dev-qt/qtwebkit:5
 	dev-qt/qtxml:5
-	sys-libs/zlib"
+	sys-libs/zlib
+"
 
 DEPEND="${RDEPEND}"
 

@@ -12,9 +12,17 @@ EGIT_REPO_URI="https://github.com/Petross404/KDice.git"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS=""
+IUSE="sound"
 
 RDEPEND="
 "
 
 DEPEND="
 "
+
+src_configure() {
+	local mycmakeargs=(
+		-DENABLE_SOUND=$(usex sound)
+	)
+	cmake-utils_src_configure
+}

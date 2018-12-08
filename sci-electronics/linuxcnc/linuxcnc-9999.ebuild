@@ -33,6 +33,7 @@ RDEPEND="
 	sys-devel/gettext
 	dev-lang/tcl
 	dev-lang/tk
+	dev-python/yapps[${PYTHON_USEDEP}]
 	dev-tcltk/tclx
 	dev-tcltk/tkimg
 	dev-tcltk/tclreadline
