@@ -33,7 +33,7 @@ DEPEND="
 	virtual/pkgconfig
 	${RDEPEND}"
 
-src_prepare(){
+src_prepare() {
 	#Remove this in a future version; There won't be any edb48-logo.png
 	sed -i  '/edb48-logo/d' CMakeLists.txt || die
 

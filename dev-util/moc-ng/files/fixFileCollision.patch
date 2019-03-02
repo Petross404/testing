@@ -1,0 +1,24 @@
+From 62b06474c31f9d0674f5139e584711e21f4fb702 Mon Sep 17 00:00:00 2001
+From: Petros Siligkounas <petross404@gmail.com>
+Date: Wed, 13 Feb 2019 20:48:13 +0200
+Subject: [PATCH] Rename moc target as moc-ng, so it doesn't overwrite Qt's moc
+
+---
+ src/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index e38fbd1..bcf57ea 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -98,6 +98,10 @@ configure_file(embedded_includes.h.in embedded_includes.h)
+ include_directories(${CMAKE_CURRENT_BINARY_DIR})
+ 
+ include("GNUInstallDirs")
++#Installing moc under /usr/bin will erase Qt's moc
++if(${CMAKE_BUILD_TYPE} MATCHES "Gentoo")
++    set_target_properties(moc PROPERTIES OUTPUT_NAME "moc-ng")
++endif()
+ install(TARGETS moc mocng_plugin
+     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
