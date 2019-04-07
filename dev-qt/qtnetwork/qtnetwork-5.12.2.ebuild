@@ -26,6 +26,7 @@ RDEPEND="${DEPEND}
 	networkmanager? ( net-misc/networkmanager )
 "
 
+PATCHES=( "${FILESDIR}/qtnetwork-5.12.1-libressl.patch" )
 QT5_TARGET_SUBDIRS=(
 	src/network
 	src/plugins/bearer/generic

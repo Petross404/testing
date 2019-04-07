@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -47,6 +47,7 @@ src_configure() {
 		-DBUILD_EXAMPLES=OFF
 		-DBUILD_DOCS=$(usex doc)
 		-DBUILD_TESTING=$(usex test)
+		-DECM_MKSPECS_INSTALL_DIR="${EPREFIX}/usr/share/qt5/mkspecs/modules"
 	)
 	cmake-utils_src_configure
 }

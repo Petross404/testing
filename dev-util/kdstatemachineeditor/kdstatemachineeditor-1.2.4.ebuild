@@ -47,6 +47,7 @@ src_configure() {
 		-DBUILD_EXAMPLES=OFF
 		-DBUILD_DOCS=$(usex doc)
 		-DBUILD_TESTING=$(usex test)
+		-DECM_MKSPECS_INSTALL_DIR="${EPREFIX}/usr/share/qt5/mkspecs/modules"
 	)
 	cmake-utils_src_configure
 }

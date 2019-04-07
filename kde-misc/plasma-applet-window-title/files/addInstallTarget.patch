@@ -1,0 +1,134 @@
+From 0a5d6d6b7d217ced56730d02c1f86745d14a4dfb Mon Sep 17 00:00:00 2001
+From: Petros Siligkounas <petross404@gmail.com>
+Date: Sat, 2 Mar 2019 19:13:42 +0200
+Subject: [PATCH] Added a CMakeLists.txt and rearranged the directory stucture
+
+---
+ CMakeLists.txt                                  | 17 +++++++++++++++++
+ .../contents}/config/config.qml                 |  0
+ {contents => package/contents}/config/main.xml  |  0
+ {contents => package/contents}/tools/Tools.js   |  0
+ .../contents}/ui/Broadcaster.qml                |  0
+ {contents => package/contents}/ui/QIconItem.qml |  0
+ .../contents}/ui/TitleLayout.qml                |  0
+ .../contents}/ui/config/ConfigAppearance.qml    |  0
+ .../contents}/ui/config/ConfigBehavior.qml      |  0
+ .../contents}/ui/config/LockItem.qml            |  0
+ .../contents}/ui/config/SlidingBox.qml          |  0
+ .../contents}/ui/config/StyleComboBox.qml       |  0
+ .../contents}/ui/config/SubstitutionsPopup.qml  |  0
+ {contents => package/contents}/ui/main.qml      |  0
+ package/metadata.desktop                        | 15 +++++++++++++++
+ 15 files changed, 32 insertions(+)
+ create mode 100644 CMakeLists.txt
+ rename {contents => package/contents}/config/config.qml (100%)
+ rename {contents => package/contents}/config/main.xml (100%)
+ rename {contents => package/contents}/tools/Tools.js (100%)
+ rename {contents => package/contents}/ui/Broadcaster.qml (100%)
+ rename {contents => package/contents}/ui/QIconItem.qml (100%)
+ rename {contents => package/contents}/ui/TitleLayout.qml (100%)
+ rename {contents => package/contents}/ui/config/ConfigAppearance.qml (100%)
+ rename {contents => package/contents}/ui/config/ConfigBehavior.qml (100%)
+ rename {contents => package/contents}/ui/config/LockItem.qml (100%)
+ rename {contents => package/contents}/ui/config/SlidingBox.qml (100%)
+ rename {contents => package/contents}/ui/config/StyleComboBox.qml (100%)
+ rename {contents => package/contents}/ui/config/SubstitutionsPopup.qml (100%)
+ rename {contents => package/contents}/ui/main.qml (100%)
+ create mode 100644 package/metadata.desktop
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..1926cad
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,17 @@
++cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
++
++find_package(ECM 0.0.11 REQUIRED NO_MODULE)
++set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
++
++include(KDEInstallDirs)
++include(KDECMakeSettings)
++include(KDECompilerSettings NO_POLICY_SCOPE)
++include(ECMInstallIcons)
++include(FeatureSummary)
++
++find_package(KF5 "5.40" REQUIRED COMPONENTS
++	Declarative
++	Plasma
++)
++
++plasma_install_package(package org.kde.windowTitle)
+diff --git a/contents/config/config.qml b/package/contents/config/config.qml
+similarity index 100%
+rename from contents/config/config.qml
+rename to package/contents/config/config.qml
+diff --git a/contents/config/main.xml b/package/contents/config/main.xml
+similarity index 100%
+rename from contents/config/main.xml
+rename to package/contents/config/main.xml
+diff --git a/contents/tools/Tools.js b/package/contents/tools/Tools.js
+similarity index 100%
+rename from contents/tools/Tools.js
+rename to package/contents/tools/Tools.js
+diff --git a/contents/ui/Broadcaster.qml b/package/contents/ui/Broadcaster.qml
+similarity index 100%
+rename from contents/ui/Broadcaster.qml
+rename to package/contents/ui/Broadcaster.qml
+diff --git a/contents/ui/QIconItem.qml b/package/contents/ui/QIconItem.qml
+similarity index 100%
+rename from contents/ui/QIconItem.qml
+rename to package/contents/ui/QIconItem.qml
+diff --git a/contents/ui/TitleLayout.qml b/package/contents/ui/TitleLayout.qml
+similarity index 100%
+rename from contents/ui/TitleLayout.qml
+rename to package/contents/ui/TitleLayout.qml
+diff --git a/contents/ui/config/ConfigAppearance.qml b/package/contents/ui/config/ConfigAppearance.qml
+similarity index 100%
+rename from contents/ui/config/ConfigAppearance.qml
+rename to package/contents/ui/config/ConfigAppearance.qml
+diff --git a/contents/ui/config/ConfigBehavior.qml b/package/contents/ui/config/ConfigBehavior.qml
+similarity index 100%
+rename from contents/ui/config/ConfigBehavior.qml
+rename to package/contents/ui/config/ConfigBehavior.qml
+diff --git a/contents/ui/config/LockItem.qml b/package/contents/ui/config/LockItem.qml
+similarity index 100%
+rename from contents/ui/config/LockItem.qml
+rename to package/contents/ui/config/LockItem.qml
+diff --git a/contents/ui/config/SlidingBox.qml b/package/contents/ui/config/SlidingBox.qml
+similarity index 100%
+rename from contents/ui/config/SlidingBox.qml
+rename to package/contents/ui/config/SlidingBox.qml
+diff --git a/contents/ui/config/StyleComboBox.qml b/package/contents/ui/config/StyleComboBox.qml
+similarity index 100%
+rename from contents/ui/config/StyleComboBox.qml
+rename to package/contents/ui/config/StyleComboBox.qml
+diff --git a/contents/ui/config/SubstitutionsPopup.qml b/package/contents/ui/config/SubstitutionsPopup.qml
+similarity index 100%
+rename from contents/ui/config/SubstitutionsPopup.qml
+rename to package/contents/ui/config/SubstitutionsPopup.qml
+diff --git a/contents/ui/main.qml b/package/contents/ui/main.qml
+similarity index 100%
+rename from contents/ui/main.qml
+rename to package/contents/ui/main.qml
+diff --git a/package/metadata.desktop b/package/metadata.desktop
+new file mode 100644
+index 0000000..2a4d22a
+--- /dev/null
++++ b/package/metadata.desktop
+@@ -0,0 +1,15 @@
++[Desktop Entry]
++Name=Window Title
++Comment=Plasmoid for providing a window title
++Type=Service
++X-KDE-ParentApp=
++X-KDE-PluginInfo-Author=Psifidotos
++X-KDE-PluginInfo-License=GPL2
++X-KDE-PluginInfo-Name=org.kde.windowTitle
++X-KDE-PluginInfo-Version=0.3
++X-KDE-PluginInfo-Website=https://github.com/psifidotos/applet-window-title
++X-KDE-ServiceTypes=Plasma/Applet
++X-Plasma-API=declarativeappletscript
++X-Plasma-MainScript=ui/main.qml
++X-Plasma-RemoteLocation=
++X-KDE-PluginInfo-Category=System Information

@@ -20,6 +20,8 @@ LICENSE="GPL-2+"
 SLOT="0"
 IUSE=""
 
+PATCHES=( "${FILESDIR}/addInstallTarget.patch" )
+
 DEPEND="
 	kde-frameworks/kdeclarative
 	kde-frameworks/plasma
