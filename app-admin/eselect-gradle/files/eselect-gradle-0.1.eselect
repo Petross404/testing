@@ -1,0 +1,87 @@
+# Copyright 1999-2017 Gentoo Foundation # Distributed under the terms of the GNU General Public License v2
+# $Id: $
+
+DESCRIPTION="Manage gradle symlinks"
+MAINTAINER="sldenazis@argentoo.org"
+SVN_DATE='20170830'
+VERSION=${SVN_DATE}
+
+find_targets() {
+	local f
+	for f in "${EROOT}"/usr/share/gradle-bin-[[:digit:]]*; do
+		[[ -d ${f} ]] && basename "${f}"
+	done
+}
+
+# Remove gradle symlink
+remove_symlink() {
+	rm -f "${EROOT}/usr/bin/gradle"
+}
+
+set_symlink() {
+	local target=${1}
+
+	if is_number $target && [[ $target -gt 0 ]]; then
+		local targets=( $( find_targets ) )
+		target="${targets[${target} - 1]}/bin/gradle"
+	fi
+
+	[[ -z ${1} || ! -e ${EROOT}/usr/share/${target} ]] \
+		&& die "Target $target doesn't appear to ve valid!"
+	
+	ln -s "${EROOT}/usr/share/$target" "${EROOT}/usr/bin/gradle"
+}
+
+describe_show() {
+	echo "Show the current gradle symlink"
+}
+
+do_show() {
+	write_list_start "Current gradle symlink:"
+	if [[ -L ${EROOT}/usr/bin/gradle ]]; then
+		local gradle=$(canonicalise "${EROOT}/usr/bin/gradle")
+		write_kv_list_entry "${gradle%/}" ""
+	else
+		write_kv_list_entry "(unset)" ""
+	fi
+}
+
+describe_list() {
+	echo "List available gradle versions"
+}
+
+do_list() {
+	local targets=( $( find_targets ) )
+	local i line
+
+	write_list_start "Available gradle versions:"
+
+	for (( i = 0; i < ${#targets[@]}; i++ )) ; do
+		line=$(basename "${targets[i]}")
+
+		if [[ /usr/share/${targets[i]}/bin/gradle = $(canonicalise "${EROOT}/usr/bin/gradle") ]] ; then
+			targets[i]=$(highlight_marker "${targets[i]}")
+		fi
+	done
+
+	write_numbered_list -m "(none found)" "${targets[@]}"
+}
+
+describe_set() {
+	echo "Switches to desired gradle version."
+}
+
+do_set() {
+	[[ -z ${@} ]] && die -q "Parameter expected."
+
+	local target=$1
+
+	[[ $target = "invalid" ]] && die -q "Can't use that profile. No suitable Ruby interpreter found."
+
+	remove_symlink || \
+		die -q "Could not remove symlink"
+
+	set_symlink "${target}"
+}
+
+# vim: ts=4 sw=4 noet fdm=marker
