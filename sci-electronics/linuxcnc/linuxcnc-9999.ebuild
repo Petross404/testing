@@ -18,10 +18,10 @@ SLOT="0"
 KEYWORDS=""
 IUSE="+libtirpc +uspace +X +gtk gnome gstreamer modbus usb"
 PATCHES=(
-	#"${FILESDIR}/fix_missingrpc_makefile.patch" \
-	#"${FILESDIR}/fix_missingrpc.patch"
-	#"${FILESDIR}/fix_rpc_header.patch"
-	#"${FILESDIR}/fix_rpc_h.patch"
+	"${FILESDIR}/fix_missingrpc_makefile.patch" \
+	"${FILESDIR}/fix_missingrpc.patch" \
+	"${FILESDIR}/fix_rpc_header.patch" \
+	"${FILESDIR}/fix_rpc_h.patch"
 )
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
