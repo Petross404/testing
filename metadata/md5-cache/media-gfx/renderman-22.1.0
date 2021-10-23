@@ -1,0 +1,15 @@
+BDEPEND=app-arch/rpm2targz
+DEFINED_PHASES=compile configure install nofetch postinst test unpack
+DESCRIPTION=Renderman render engine
+EAPI=7
+HOMEPAGE=https://renderman.pixar.com/
+IUSE=video_cards_nvidia abi_x86_64
+KEYWORDS=~amd64 ~x86
+LICENSE=RenderMan-TMPL
+RDEPEND=app-arch/bzip2[abi_x86_64(-)?] app-arch/lz4[abi_x86_64(-)?] app-arch/xz-utils[abi_x86_64(-)?] dev-libs/elfutils[abi_x86_64(-)?] dev-libs/expat[abi_x86_64(-)?] dev-libs/libbsd[abi_x86_64(-)?] dev-libs/libffi[abi_x86_64(-)?] dev-libs/libgpg-error[abi_x86_64(-)?] dev-libs/glib[abi_x86_64(-)?] dev-libs/libgcrypt:0[abi_x86_64(-)?] dev-libs/libpcre[abi_x86_64(-)?] media-gfx/graphite2[abi_x86_64(-)?] media-libs/fontconfig[abi_x86_64(-)?] media-libs/freetype[abi_x86_64(-)?] media-libs/harfbuzz[abi_x86_64(-)?] media-libs/libpng:0[abi_x86_64(-)?] media-libs/mesa[abi_x86_64(-)?] sys-apps/dbus[abi_x86_64(-)?] sys-apps/systemd[abi_x86_64(-)?] sys-apps/util-linux[abi_x86_64(-)?] sys-libs/libcap[abi_x86_64(-)?] sys-libs/zlib[abi_x86_64(-)?] virtual/opengl[abi_x86_64(-)?] x11-libs/libICE[abi_x86_64(-)?] x11-libs/libSM[abi_x86_64(-)?] x11-libs/libX11[abi_x86_64(-)?] x11-libs/libXau[abi_x86_64(-)?] x11-libs/libXdmcp[abi_x86_64(-)?] x11-libs/libXext[abi_x86_64(-)?] x11-libs/libXi[abi_x86_64(-)?] x11-libs/libXrender[abi_x86_64(-)?] x11-libs/libxcb[abi_x86_64(-)?] video_cards_nvidia? ( x11-drivers/nvidia-drivers[abi_x86_64(-)?] )
+REQUIRED_USE=|| ( abi_x86_64 )
+RESTRICT=bindist mirror fetch strip
+SLOT=0
+SRC_URI=RenderMan-InstallerNCR-22.1.0_1891132-linuxRHEL7_gcc48icc170.x86_64.rpm
+_eclasses_=edos2unix	33e347e171066657f91f8b0c72ec8773	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	dab5d8ec471d025b79c9e6906bcf3bff	multibuild	05a584848db4901c97fcd94ae7cc3a97	multilib	4b66d835ec72e021e359bb81eacfe988	multilib-build	19ec165e9adcaa4c132b9e3fe3e7f556	multilib-minimal	be5919734a8448dddd49c2b26db45091	rpm	f73e907469f65e52192f110dec72dce0	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	wrapper	4251d4c84c25f59094fd557e0063a974
+_md5_=667a0a359a7088bec093e7a83672643d

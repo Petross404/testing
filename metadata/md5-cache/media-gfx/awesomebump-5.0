@@ -1,0 +1,9 @@
+DEFINED_PHASES=-
+DESCRIPTION=Tool to generate different types of textures from a single image.
+EAPI=7
+HOMEPAGE=https://github.com/kmkolasinski/AwesomeBump/
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://github.com/kmkolasinski/AwesomeBump/archive/Linuxv5.0.tar.gz -> awesomebump-5.0.tar.gz
+_md5_=9dcd37c7b9848d3ee0d02854cbdb8098

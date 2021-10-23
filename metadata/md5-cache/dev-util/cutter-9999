@@ -1,0 +1,14 @@
+BDEPEND=>=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure install postinst postrm setup unpack
+DEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ~dev-util/rizin-9999
+DESCRIPTION=A Qt and C++ GUI for radare2 reverse engineering framework
+EAPI=7
+HOMEPAGE=https://cutter.re https://github.com/radareorg/cutter/
+IUSE=python_single_target_python3_8 python_single_target_python3_9
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=python_single_target_python3_8? ( dev-lang/python:3.8 >=dev-lang/python-exec-2:=[python_targets_python3_8] ) python_single_target_python3_9? ( dev-lang/python:3.9 >=dev-lang/python-exec-2:=[python_targets_python3_9] ) dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtnetwork:5 dev-qt/qtsvg:5 dev-qt/qtwidgets:5 ~dev-util/rizin-9999
+REQUIRED_USE=^^ ( python_single_target_python3_8 python_single_target_python3_9 )
+SLOT=0
+_eclasses_=eapi8-dosym	cd7d420bb5be5ee079f27239ce76b8f5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	python-single-r1	d46c125afba8be02eb1cd7104bac6e9c	python-utils-r1	08d890890f70fe0096093016e55438d5	qmake-utils	f5eb2f69fffe94292aaaf802fb21c8d1	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=3984581fa215901b2ab3f17b99a5d429

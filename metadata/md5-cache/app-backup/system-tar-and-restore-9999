@@ -1,12 +1,13 @@
 DEFINED_PHASES=install postinst prepare unpack
-DEPEND=gui? ( x11-misc/gtkdialog ) app-shells/bash:0 >=dev-vcs/git-1.8.2.1
+DEPEND=gui? ( x11-misc/gtkdialog ) app-shells/bash:0 >=dev-vcs/git-1.8.2.1[curl]
 DESCRIPTION=Scripts (star.sh & star-gui.sh) in order to tar and restore your system.
 EAPI=6
 HOMEPAGE=https://github.com/tritonas00/system-tar-and-restore
 IUSE=gui parallel-xz parallel-bzip2
 KEYWORDS=**
 LICENSE=GPL-2
+PROPERTIES=live
 RDEPEND=gui? ( x11-misc/gtkdialog ) app-shells/bash:0
 SLOT=0
-_eclasses_=desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	epatch	8233751dc5105a6ae8fcd86ce2bb0247	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	97ce9decef1ff4b6c5be700283f67343	git-r3	fec09a83ae965b041b47f5ff7c8ba29a	ltprune	2770eed66a9b8ef944714cd0e968182e	multilib	97f470f374f2e94ccab04a2fb21d811e	toolchain-funcs	185a06792159ca143528e7010368e8af
+_eclasses_=desktop	c0d27bf73aa08ca05b663dbd31fbef28	edos2unix	33e347e171066657f91f8b0c72ec8773	epatch	9f813bb3c47cf2e60619a663b87c5f4e	estack	055c42df72f76a4f45ec92b35e83cd56	eutils	dab5d8ec471d025b79c9e6906bcf3bff	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	ltprune	4f3f2db5ce3ccbeeacdf3f94954043aa	multilib	4b66d835ec72e021e359bb81eacfe988	preserve-libs	dbc9f8d2d49c66467bc327fddd8317bd	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	vcs-clean	b690a7e9b6c497cf59326a7545df4283	wrapper	4251d4c84c25f59094fd557e0063a974
 _md5_=8fdb8575d51a158a63a711cd51d242f0

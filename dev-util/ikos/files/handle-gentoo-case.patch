@@ -1,0 +1,20 @@
+From 39a962686dd26a47c08e12badd92890c1a4aeb5d Mon Sep 17 00:00:00 2001
+From: Petros S <petross404@gmail.com>
+Date: Thu, 30 Sep 2021 22:59:19 +0300
+Subject: [PATCH] Update HandleOptions.cmake to handle Gentoo
+
+---
+ cmake/HandleOptions.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/HandleOptions.cmake b/cmake/HandleOptions.cmake
+index ddb4b14..dd56dc9 100644
+--- a/cmake/HandleOptions.cmake
++++ b/cmake/HandleOptions.cmake
+@@ -1,5 +1,5 @@
+ # Check the build type
+-set(CMAKE_BUILD_TYPES "Debug;Release;RelWithDebInfo;MinSizeRel")
++set(CMAKE_BUILD_TYPES "Debug;Release;RelWithDebInfo;MinSizeRel;Gentoo")
+ if (NOT (CMAKE_BUILD_TYPE IN_LIST CMAKE_BUILD_TYPES))
+   message(FATAL_ERROR "Unsupported build type: ${CMAKE_BUILD_TYPE}")
+ endif()

@@ -1,0 +1,12 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui dev-qt/qtnetwork dev-qt/qtwidgets dev-qt/qtx11extras kde-frameworks/extra-cmake-modules
+DESCRIPTION=KDE effect rounds/chisels corners of your windows.
+EAPI=7
+HOMEPAGE=https://github.com/khanhas/ShapeCorners
+LICENSE=GPL-3
+PROPERTIES=live
+RDEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui dev-qt/qtnetwork dev-qt/qtwidgets dev-qt/qtx11extras
+SLOT=5
+_eclasses_=cmake-utils	f40ef5c4fb8eda19cca8d6604bef497e	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=9c86eaa8e567476a05c8b8a88c3d4467

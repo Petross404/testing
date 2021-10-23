@@ -1,9 +1,12 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-inherit kde5
+ECM_HANDBOOK="forceoptional"
+KFMIN=5.70.0
+QTMIN=5.14.1
+inherit inherit ecm kde.org
 
 if [[ ${PV} == 9999 ]] ; then
 	inherit git-r3
@@ -24,7 +27,7 @@ DEPEND="
 	dev-qt/qtdbus
 	dev-qt/qtgui
 	dev-qt/qtquickcontrols2
-	dev-qt/qtwidgets[xcb]
+	dev-qt/qtwidgets
 	kde-frameworks/extra-cmake-modules
 	kde-frameworks/kwindowsystem
 	kde-frameworks/plasma
@@ -32,5 +35,3 @@ DEPEND="
 "
 
 RDEPEND="${DEPEND}"
-
-DOCS=( CHANGELOG.md README.md )

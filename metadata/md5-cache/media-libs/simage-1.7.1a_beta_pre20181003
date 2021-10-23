@@ -1,0 +1,13 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6 dev-vcs/mercurial
+DEFINED_PHASES=compile configure install prepare test unpack
+DEPEND=gif? ( media-libs/giflib ) jpeg? ( virtual/jpeg:0= ) jpeg2k? ( media-libs/jasper ) png? ( media-libs/libpng:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) sndfile? ( media-libs/libsndfile ) tiff? ( media-libs/tiff:0= ) vorbis? ( media-libs/libogg media-libs/libvorbis )
+DESCRIPTION=Image and video texturing library
+EAPI=7
+HOMEPAGE=https://bitbucket.org/Coin3D/simage
+IUSE=debug gif jpeg jpeg2k png qt5 sndfile tiff vorbis
+LICENSE=public-domain mpeg2enc
+PROPERTIES=live
+RDEPEND=gif? ( media-libs/giflib ) jpeg? ( virtual/jpeg:0= ) jpeg2k? ( media-libs/jasper ) png? ( media-libs/libpng:0= ) qt5? ( dev-qt/qtcore:5 dev-qt/qtgui:5 ) sndfile? ( media-libs/libsndfile ) tiff? ( media-libs/tiff:0= ) vorbis? ( media-libs/libogg media-libs/libvorbis )
+SLOT=0
+_eclasses_=cmake-utils	f40ef5c4fb8eda19cca8d6604bef497e	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	mercurial	caa671a93f3b46fa4eff65babfbac141	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=5cac4e8f7a0715d0fd6b6f243a45d9c5

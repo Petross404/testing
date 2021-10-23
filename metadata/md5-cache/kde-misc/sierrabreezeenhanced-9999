@@ -1,11 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
 DEFINED_PHASES=compile configure install prepare test unpack
-DEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui[xcb] dev-qt/qtnetwork dev-qt/qtwidgets x11-libs/libxcb kde-frameworks/extra-cmake-modules sys-devel/make >=dev-util/cmake-3.9.6 >=dev-vcs/git-1.8.2.1[curl]
+DEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui dev-qt/qtnetwork dev-qt/qtwidgets x11-libs/libxcb kde-frameworks/extra-cmake-modules
 DESCRIPTION=A fork of BreezeEnhanced to make it (arguably) more minimalistic and informative
-EAPI=6
+EAPI=7
 HOMEPAGE=https://github.com/kupiqu/SierraBreezeEnhanced
 IUSE=doc test
+KEYWORDS=~amd64
 LICENSE=GPL-3
-RDEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui[xcb] dev-qt/qtnetwork dev-qt/qtwidgets x11-libs/libxcb
+PROPERTIES=live
+RDEPEND=kde-frameworks/kwidgetsaddons kde-frameworks/kcoreaddons kde-frameworks/kconfig kde-frameworks/kwindowsystem kde-frameworks/ki18n kde-frameworks/kguiaddons kde-frameworks/kconfigwidgets kde-plasma/kdecoration dev-qt/qtcore dev-qt/qtdeclarative dev-qt/qtdbus dev-qt/qtgui dev-qt/qtnetwork dev-qt/qtwidgets x11-libs/libxcb
 SLOT=5
-_eclasses_=cmake-utils	91d6ef31dc426240577497cacbf2508c	desktop	b1d22ac8bdd4679ab79c71aca235009d	epatch	a1bf4756dba418a7238f3be0cb010c54	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	6e6c2737b59a4b982de6fb3ecefd87f8	flag-o-matic	7ba73aee7fe4462b3a745e3645ab92ca	git-r3	0d4635eeb5a96cd5315597a47eba25c9	ltprune	2729691420b6deeda2a90b1f1183fb55	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	8c7f9d80beedd16f2e5a7f612c609529	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	xdg-utils	14d00d009167652b1fa363e55effe213
-_md5_=8eb018e64b4498ed1f6a71b727723b9f
+_eclasses_=cmake-utils	f40ef5c4fb8eda19cca8d6604bef497e	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	wrapper	4251d4c84c25f59094fd557e0063a974	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=e0d471148c52a4838e42b5ce2236eb27

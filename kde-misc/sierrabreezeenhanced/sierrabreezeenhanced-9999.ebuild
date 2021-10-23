@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 inherit cmake-utils
 
@@ -13,6 +13,7 @@ if [[ ${PV} == 9999 ]] ; then
 	EGIT_REPO_URI="https://github.com/kupiqu/SierraBreezeEnhanced.git"
 fi
 
+KEYWORDS="~amd64"
 LICENSE="GPL-3"
 IUSE="doc test"
 SLOT="5"
@@ -31,7 +32,7 @@ RDEPEND="
 	dev-qt/qtcore
 	dev-qt/qtdeclarative
 	dev-qt/qtdbus
-	dev-qt/qtgui[xcb]
+	dev-qt/qtgui
 	dev-qt/qtnetwork
 	dev-qt/qtwidgets
 	x11-libs/libxcb

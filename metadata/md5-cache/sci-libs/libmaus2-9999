@@ -1,0 +1,12 @@
+BDEPEND=sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=configure postinst prepare unpack
+DEPEND=app-arch/snappy sci-libs/fftw sci-libs/hdf5 net-libs/gnutls dev-libs/nettle
+DESCRIPTION=Library for biobambam2
+EAPI=7
+HOMEPAGE=https://github.com/gt1/libmaus
+IUSE=cpu_flags_x86_ssse3 cpu_flags_x86_sse4_1 cpu_flags_x86_sse4_2
+LICENSE=BSD-2 GPL-2 GPL-3 MIT ZLIB
+PROPERTIES=live
+SLOT=0
+_eclasses_=autotools	c7052b276346587968d52ea8eaf5aca1	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	gnuconfig	262062cef0ba4f22b397193da514a350	libtool	241a8f577b9781a42a7421e53448a44e	multilib	4b66d835ec72e021e359bb81eacfe988	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa
+_md5_=e8698ceec1e5da7234e51f5bc36c30c4

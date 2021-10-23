@@ -1,36 +1,43 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
-inherit qmake-utils xdg-utils gnome2-utils git-r3
+PYTHON_COMPAT=( python3_{6,7,8,9} )
+
+inherit qmake-utils xdg-utils python-single-r1 git-r3
 
 DESCRIPTION="A Qt and C++ GUI for radare2 reverse engineering framework"
-HOMEPAGE="https://www.radare.org"
+HOMEPAGE="https://cutter.re https://github.com/radareorg/cutter/"
 EGIT_REPO_URI="https://github.com/radareorg/cutter.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
-IUSE="jupyter webengine"
-REQUIRED_USE="webengine? ( jupyter )"
+KEYWORDS=""
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 DEPEND="
-	>=dev-qt/qtcore-5.9.1:5
-	>=dev-qt/qtgui-5.9.1:5
-	>=dev-qt/qtsvg-5.9.1:5
-	>=dev-qt/qtwidgets-5.9.1:5
-	>=dev-util/radare2-2.7.0
-	jupyter? ( dev-python/jupyter )
-	webengine? ( >=dev-qt/qtwebengine-5.9.1:5[widgets] )
+	${PYTHON_DEPS}
+	dev-qt/qtcore:5
+	dev-qt/qtgui:5
+	dev-qt/qtnetwork:5
+	dev-qt/qtsvg:5
+	dev-qt/qtwidgets:5
+	~dev-util/rizin-9999
 "
 
 RDEPEND="${DEPEND}"
 
+PATCHES=(
+	"${FILESDIR}/${PN}-1.10.3-python3-config.patch"
+)
+
 src_configure() {
 	local myqmakeargs=(
-		CUTTER_ENABLE_JUPYTER=$(usex jupyter true false)
-		CUTTER_ENABLE_QTWEBENGINE=$(usex webengine true false)
+		CUTTER_ENABLE_PYTHON=true \
+		CUTTER_USE_ADDITIONAL_RIZIN_PATH=true \
+		CUTTER_USE_BUNDLED_RIZIN=true \
+		CUTTER_INSTALL_DATADIR="share/RizinOrg/Cutter" \
 		PREFIX=\'${EPREFIX}/usr\'
 	)
 
@@ -42,11 +49,9 @@ src_install() {
 }
 
 pkg_postinst() {
-	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	xdg_desktop_database_update
-	gnome2_icon_cache_update
+	xdg_icon_cache_update
 }

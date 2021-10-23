@@ -1,11 +1,14 @@
-DEFINED_PHASES=compile configure install postinst postrm preinst prepare setup test unpack
-DEPEND=>=kde-frameworks/kconfig-5.46.0:5 >=kde-frameworks/kcoreaddons-5.46.0:5 >=kde-frameworks/kwindowsystem-5.46.0:5 >=kde-frameworks/plasma-5.46.0:5[X] >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5 >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtwidgets-5.9.4:5 >=dev-qt/qtx11extras-5.9.4:5 sys-devel/make >=dev-util/cmake-3.9.6 >=sys-apps/sed-4 dev-util/desktop-file-utils x11-misc/shared-mime-info >=dev-vcs/git-1.8.2.1 >=kde-frameworks/extra-cmake-modules-5.46.0:5 >=dev-qt/qtcore-5.9.4:5 dev-util/desktop-file-utils
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5 handbook? ( >=kde-frameworks/kdoctools-5.70.0:5 ) >=kde-frameworks/extra-cmake-modules-5.70.0:5 >=dev-vcs/git-1.8.2.1[curl]
+DEFINED_PHASES=compile configure install nofetch postinst postrm preinst prepare setup test unpack
+DEPEND=kde-frameworks/kconfig kde-frameworks/kcoreaddons kde-frameworks/kwindowsystem kde-frameworks/plasma dev-qt/qtdbus dev-qt/qtdeclarative dev-qt/qtgui dev-qt/qtwidgets dev-qt/qtx11extras dev-util/desktop-file-utils x11-misc/shared-mime-info dev-qt/qtcore:5
 DESCRIPTION=Plasma 5 applet for controlling currently active window
-EAPI=6
+EAPI=7
 HOMEPAGE=https://store.kde.org/p/998910/
-IUSE=debug
+IUSE=debug +handbook
+KEYWORDS=~amd64 ~arm64 ~ppc64 ~x86
 LICENSE=GPL-2
-RDEPEND=>=kde-frameworks/kconfig-5.46.0:5 >=kde-frameworks/kcoreaddons-5.46.0:5 >=kde-frameworks/kwindowsystem-5.46.0:5 >=kde-frameworks/plasma-5.46.0:5[X] >=dev-qt/qtdbus-5.9.4:5 >=dev-qt/qtdeclarative-5.9.4:5 >=dev-qt/qtgui-5.9.4:5 >=dev-qt/qtwidgets-5.9.4:5 >=dev-qt/qtx11extras-5.9.4:5 >=kde-frameworks/kf-env-4 || ( >=kde-frameworks/breeze-icons-5.46.0:5 kde-frameworks/oxygen-icons:* ) >=dev-qt/qtcore-5.9.4:5
+PROPERTIES=live
+RDEPEND=kde-frameworks/kconfig kde-frameworks/kcoreaddons kde-frameworks/kwindowsystem kde-frameworks/plasma dev-qt/qtdbus dev-qt/qtdeclarative dev-qt/qtgui dev-qt/qtwidgets dev-qt/qtx11extras || ( kde-frameworks/breeze-icons:* kde-frameworks/oxygen-icons:* ) >=kde-frameworks/kf-env-4 dev-qt/qtcore:5
 SLOT=5
-_eclasses_=cmake-utils	57384a259cf0c7985ce651b2c0865405	desktop	2ccd1dd1dd7bfb8795eea024a4f91bb6	eapi7-ver	d97a56a62c7df8614afddcb25f5ff00f	epatch	9a5f039771f143195164a15a4faa41a1	estack	43ddf5aaffa7a8d0482df54d25a66a1f	eutils	63392afb034aad67f17fa129019eb4d9	flag-o-matic	5128c4729303400bd8d4b0b966530955	git-r3	af51ccfceeb403ab80f1bf9209d372c8	gnome2-utils	4d211d7614f303710fca59db6ec12c88	kde5	0afda9a43e3d76e470f447753ad056af	kde5-functions	5023dbcb3c1a817f64e2c51cc71f08ab	ltprune	607e058da37aa6dabfa408b7d61da72e	multilib	97f470f374f2e94ccab04a2fb21d811e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	d2e7e7d290428bb25c56dcf2502badc1	preserve-libs	ef207dc62baddfddfd39a164d9797648	toolchain-funcs	1e35303c63cd707f6c3422b4493d5607	vcs-clean	2a0f74a496fa2b1552c4f3398258b7bf	virtualx	3a3c4637ea6d5a2113707a644766337c	xdg	6cd76cc914c1a759dee032778487b57f	xdg-utils	f2c8335407f0b935b0a96d4adf23ef25
-_md5_=c032f1ab5cf2a263161c75d086490e05
+_eclasses_=cmake	11fee991ab428a3370e5c20fa8231fb6	ecm	9fe70cc0ef1ddfecce7548500987215d	edos2unix	33e347e171066657f91f8b0c72ec8773	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	git-r3	cc875b0c1e9b3bdac1af0f82f3ba29da	kde.org	f95aaca4085d2d633c2b76abfd72208f	multilib	4b66d835ec72e021e359bb81eacfe988	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	virtualx	fa024aa649b6bd544144bf94893d402c	wrapper	4251d4c84c25f59094fd557e0063a974	xdg	6024fbc93167fad782e2032933654857	xdg-utils	27f9a2f19502b925ac117bd657aa2979
+_md5_=0f14476605666e168c110e39f76ce16e
