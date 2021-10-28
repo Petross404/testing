@@ -30,6 +30,8 @@ src_prepare() {
 	eapply_user
 
 	if use !examples; then
-		sed -i -e 's/add_subdirectory(example)/d' CMakeLists.txt || die "Sed failed!".
+		sed -i -e '/add_subdirectory(example)/d' CMakeLists.txt || die "Sed failed!".
 	fi
+
+	cmake_src_prepare
 }
